@@ -1,0 +1,13 @@
+{
+    "name": "acf/events-grid",
+    "title": "Kamigos Events Grid (ACF Block)",
+    "description": "Custom grid of events.",
+    "category": "formatting",
+    "icon": "<svg xmlns='http://www.w3.org/2000/svg' id='Layer_1' viewBox='0 0 36 36'> <path d='M16 4v11H0V4zM2 13h12V6H2zm6 8-3 4h6zM9.5 9 7 12h5zM13 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0M36 4v11H20V4zm-14 9h12V6H22zm30 8 3 4h-6zm26.5 9 2.5 3h-5zM25 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0M0 19h11v2H0zM16 23v11H0V23zM2 32h12v-7H2zm7 27-3 4h6zM10.5 28 8 31h5zM5 27a1 1 0 1 1-2 0 1 1 0 0 1 2 0M16 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0M36 20a1 1 0 1 1-2 0 1 1 0 0 1 2 0M16 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0M36 1a1 1 0 1 1-2 0 1 1 0 0 1 2 0M20 19h13v2H20zM36 23v11H20V23zm-14 9h12v-7H22zm29 27 3 4h-6zm25.5 28 2.5 3h-5zM33 27a1 1 0 1 1-2 0 1 1 0 0 1 2 0M0 0h13v2H0zM20 0h11v2H20z'/> </svg>",
+    "keywords": ["events-grid", "akce přehled", "tréninky přehled"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "align": "full"
+}

@@ -1,0 +1,74 @@
+// .logo-container {	
+// 	position: absolute;
+// 	top: calc(var(--pad-T) * 3);
+// 	left: var(--pad-R);
+// 	z-index: 50;
+// 	@include mq(mq-land) {
+// 		display: flex;
+// 		flex-direction: column;
+// 		justify-content: center;
+// 	}
+// }
+
+.logo {
+
+	// width: calc((100vw - (var(--pad-R) * 2)) / 3);
+	// @include mq(mq-land) {
+	// 	width: calc(var(--logo-H) * var(--aspect-ratio));
+	// }
+	svg {
+		fill: var(--color-highlight);
+	}
+}
+
+.section-footer .logo {
+    width: 100%;
+	@include mq(mq-land) {
+	    width: calc( 100% - (var(--pad-R) * 2) );
+	    margin-left: calc(var(--pad-R) * 2);
+	}
+	.align-center {
+		display: none;
+		visibility: hidden;
+		@include mq(mq-land) {
+			display: block;
+			visibility: visible;
+		}
+	}
+	.align-left {
+		display: block;
+		visibility: visible;
+		@include mq(mq-land) {
+			display: none;
+			visibility: hidden;
+		}
+	}
+}
+
+.header .logo-container {
+	display: block;
+	padding-inline: var(--pad-R);
+	padding-block: calc(var(--pad-T) * 4.0) calc(var(--pad-T) * 2.0);
+	@include mq(mq-land) {
+		display: none;
+	}
+	position: relative;
+	width: 100%;
+}
+.header .logo {
+	svg {
+		// fill: var(--annav-blue);
+	}
+}
+
+
+
+// .section-footer--col .logo-container {
+	
+// 	position: relative;
+// 	margin-bottom: calc( var(--pad-T) * 1.3333333 );
+// 	@include mq(mq-land) {
+// 	    height: calc(100% / (var(--aspect-ratio)));
+// 	}
+// }
+

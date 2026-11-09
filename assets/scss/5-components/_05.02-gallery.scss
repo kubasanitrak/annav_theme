@@ -1,0 +1,23 @@
+.gallery-grid {
+	&--row,
+	&--col {
+		display: flex;
+		gap: var(--gap);
+	}
+	&--col {
+		height: 100%;
+		flex-direction: column;
+		.gallery-grid--item {
+			// flex-grow: 2;
+		}
+	}
+	&--row {
+		height: calc((100% - var(--gap)) * .5);
+	}
+	&--item {
+		height: 100%;
+	}
+}
+.gallery-grid--container {
+	
+}

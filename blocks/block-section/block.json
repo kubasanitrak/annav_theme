@@ -1,0 +1,17 @@
+{
+    "name": "acf/header",
+    "title": "Kamigos Custom Section (ACF Block)",
+    "description": "Set background color, img, scroll arrow.",
+    "category": "formatting",
+    "icon": "<svg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'><path d='M36 0v24H0V0zM2 22h32V2H2zM4.293 20H4v-1.121L18.879 4h1.414zM22 5.121 7.121 20H5.707l16-16H22zM22 7.95 9.95 20H8.536L22 6.535zM22 10.778 12.778 20h-1.414L22 9.364zM22 13.606 15.606 20h-1.414L22 12.192zM22 16.436 18.436 20H17.02L22 15.02zM22 19.264l-.736.736H19.85L22 17.85zM4 17.465V16.05L16.05 4h1.415zM4 14.636v-1.414L13.222 4h1.415zM4 11.808v-1.414L10.394 4h1.414zM4 8.979V7.564L7.564 4H8.98zM4 6.15V4.736L4.736 4H6.15zM23 19.264l.736.736h1.414L23 17.85zM23 16.436 26.564 20h1.415L23 15.02zM23 13.606 29.394 20h1.414L23 12.192zM23 10.778l9 9v-1.414l-9-9zM23 7.95l9 9v-1.415l-9-9zM23 4v1.121l9 9v-1.414L23.293 4zM24.707 4 32 11.293V9.879L26.121 4zM27.535 4 32 8.465V7.05L28.95 4zM30.363 4 32 5.636V4.222L31.778 4z'/></svg>",
+    "keywords": ["section", "container", "header"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "anchor": true,
+        "jsx": true,
+        "color": true
+    }
+}

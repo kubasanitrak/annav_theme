@@ -1,0 +1,23 @@
+{
+    "name": "acf/columns",
+    "title": "Kamigos Columns Img & Txt (ACF Block)",
+    "description": "Image & Text Columns",
+    "category": "formatting",
+    "icon": "<svg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'><path d='M2 22h.548l-2 2H0v-.866l2-2zm3.376 0-2 2H1.962l2-2zm2.828 0-2 2H4.79l2-2zm2.83 0-2 2H7.618l2-2zm2.827 0-2 2h-1.414l2-2zm2.83 0-2 2h-1.415l2-2zm2.828 0-2 2h-1.414l2-2zm2.828 0-2 2h-1.414l2-2zm2.829 0-2 2H21.76l2-2zm2.828 0-2 2H24.59l2-2zm3 0-2 2h-1.415l2-2zM36 20.003 32.003 24h-1.414l2-2H34v-1.411l2-2zm0 3-.995.997H33.59L36 21.59zM2 19.72l-2 2v-1.415l2-2zm34-2.717-2 2v-1.414l2-2zM2 16.89l-2 2v-1.414l2-2zm0-2.828-2 2v-1.415l2-2zm34-.06-2 2V14.59l2-2zM2 11.235l-2 2V11.82l2-2zm34-.06-2 2v-1.413l2-2zM2 8.406l-2 2V8.991l2-2zm34-.058-2 2V8.933l2-2zM2 5.577l-2 2V6.163l2-2zm34-.058-2 2V6.104l2-2zM2.749 2H2v.749l-2 2V3.335L3.335 0h1.414zM36 2.69l-2 2V3.275l2-2zM33.861 2h-1.414l2-2h1.414zm-2.828 0H29.62l2-2h1.414zm-2.829 0H26.79l2-2h1.414zm-2.828 0h-1.414l2-2h1.414zm-2.828 0h-1.414l2-2h1.414zM19.72 2h-1.415l2-2h1.415zm-2.83 0h-1.413l2-2h1.414zm-2.828 0h-1.414l2-2h1.415zm-2.828 0H9.82l2-2h1.414zM8.405 2H6.991l2-2h1.414zM5.577 2H4.163l2-2h1.414zM0 1.92V.506L.506 0H1.92zM23 19.264l.736.736h1.414L23 17.85zm0-2.828L26.564 20h1.415L23 15.02zm0-2.83L29.394 20h1.414L23 12.192zm0-2.828 9 9v-1.414l-9-9zm0-2.829 9 9v-1.414l-9-9zM23 4v1.121l9 9v-1.414L23.293 4zm1.707 0L32 11.293V9.879L26.121 4zm2.828 0L32 8.465V7.05L28.95 4zm2.828 0L32 5.636V4.222L31.778 4zM4 4v16h17V4zm15 14H6V6h13zM11.5 9 7 16h9zm15 11-3 5h6zM15 8.5a1.5 1.5 0 1 0 3 0 1.5 1.5 0 0 0-3 0'/></svg>",
+    "keywords": ["custom-columns", "text and image"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true
+        },
+        "anchor": true,
+        "jsx": true,
+        "align": true
+    },
+    "align": "full"
+}

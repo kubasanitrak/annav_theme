@@ -1,0 +1,85 @@
+.nav-switch,
+.nav-checkbox { display: none }
+
+.hamburger {
+	display: block;
+	position: absolute;
+	top: calc( (var(--pad-T) * 3) - (#{$ham-H} * .25));
+	// top: calc( (var(--pad-T) * 3));
+	right: 0;
+	z-index: 2;
+	overflow: hidden;
+	padding: 0;
+	width: $ham-W;
+	height: $ham-H;
+	font-size: 0;
+	text-indent: -9999px;
+	cursor: pointer;
+	
+	background-color: transparent;
+	// background-color: pink;
+}
+
+.hamburger span {
+	
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+	transform: translate(-50%, -50%);
+	width: calc(100% - (#{$ham-PAD} * 2));
+	// left: $ham-PAD;
+
+	// right: $ham-PAD;
+
+	&,	
+	&::before,
+	&::after {
+		position: absolute;
+		display: block;
+		height: $ham-BAR_STROKE;
+		background-color: var(--color-contrast-high);
+	}
+	&::before,
+	&::after {
+		content: "";
+		z-index: 2;
+		left: 0;
+		right: 0;
+	}
+}
+
+.hamburger span::before {
+	top: -$ham-BAR_STROKE - $ham-BAR_SPACE;
+}
+
+.hamburger span::after{
+	bottom: -$ham-BAR_STROKE - $ham-BAR_SPACE;
+}
+
+.nav-switch:checked ~ label span {
+	background: none;
+}
+.nav-switch:checked ~ label span::before {
+	top: 0;
+}
+.nav-switch:checked ~ label span::after {
+	bottom: 0;
+}
+
+.nav-switch:checked ~ label ~ .menu-container {
+	padding-top: calc( (#{$fz-NAV} * 2.0));
+	cursor: pointer;
+	height: calc( (#{$fz-NAV} + #{$nav-GAP} * 2) * 7); //3 = NUMBER OF .menu > li ITEMS
+	height: 100vh;
+	height: 100dvh;
+	
+	// @include mq(mq-land) {
+	// 	padding-top: 0;
+	// 	height: calc((var(--logo-H)) + (var(--pad-T) * 2.0) );
+	// }
+	@include mq(mq-iPad-land) {
+	}
+}
+
+
+

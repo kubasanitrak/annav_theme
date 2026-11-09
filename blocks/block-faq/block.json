@@ -1,0 +1,16 @@
+{
+    "name": "acf/faq",
+    "title": "Kamigos Proč my (ACF Block)",
+    "description": "A custom FAQ block.",
+    "category": "formatting",
+    "icon": "admin-comments",
+    "keywords": ["faq", "proč"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "anchor": true,
+        "jsx": true
+    }
+}

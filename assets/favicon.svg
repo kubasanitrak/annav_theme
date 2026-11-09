@@ -1,0 +1,16 @@
+<svg width="144" height="144" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root { --dark: #000000; }
+    
+    .dark-fill { fill: var(--dark); } 
+    .dark-stroke { stroke: var(--dark); } 
+    
+    @media (prefers-color-scheme: dark) { 
+    .dark-fill { fill: #adadad; } 
+    .dark-stroke { stroke: #adadad; } 
+    }
+  </style>
+<ellipse cx="73" cy="72.5334" rx="72" ry="71.1111" class="dark-fill"/>
+<ellipse cx="73" cy="72.5333" rx="47.52" ry="46.9333" class="dark-fill"/>
+
+</svg>

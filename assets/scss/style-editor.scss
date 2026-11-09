@@ -1,0 +1,64 @@
+@import '1-settings/_colors';
+@import '1-settings/_vars';
+
+@import '1-tools/_mixins';
+@import '4-objects/_classes';
+
+// :root {
+//     --pad-T: calc(8px + (12 - 8) * ((100vw - 320px) / (2560 - 320)));
+//     --pad-R: calc(12px + (36 - 12) * ((100vw - 320px) / (2560 - 320)));
+//     --maW: 1440;
+//     --gap: var(--pad-R);
+//     --gutter: var(--gap);
+
+//     --info-col-num: 2;
+//     --info-col-num-minus-1: 1;
+// }
+
+html :where(.editor-styles-wrapper) {
+  font-family: inherit;
+  font-family: apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif;
+}
+
+/* Main column width */
+.wp-block { max-width: 1440px; }
+.wp-block-acf-proj-info-col {
+    max-width: 50%;
+}
+/* Width of "wide" blocks */
+.wp-block[data-align="wide"] { max-width: 1440px; }
+
+/* Width of "full-width" blocks */
+.wp-block[data-align="full"] { max-width: none; }
+
+.wp-block {
+    &.acf-block-body,
+    &-acf-header,
+    &-acf-section,
+    &-acf-block-body,
+    &-acf-section-column,
+    .custom-section,
+    .custom-section-header,
+    .program-container,
+    .accordion-content-wrapper,
+    &.wp-block-acf-custom-section,
+    .custom-columns--item,
+    &-acf-eshop-list,
+    .wp-block-group__inner-container,
+    .section-content {
+        border: 2px dotted var(--black);
+        padding: 1rem;
+    }
+}
+
+
+.scroll-trigger {
+    &--faq {
+    }
+    &--news {
+    }
+    &--morph {
+    }
+    &--contact {
+    }
+}

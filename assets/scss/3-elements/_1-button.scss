@@ -1,0 +1,67 @@
+input[type="submit"],
+button {
+	display: inline-block;
+	background-image: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	box-shadow: none;
+	text-shadow: none;
+}
+input[type="submit"],
+.btn,	
+button{
+	&:active,
+	&:focus,
+	&:target,
+	&:focus-visible,
+	&:focus-within {
+		cursor: pointer;
+		outline:0;
+	}
+	-webkit-appearance: none;
+}
+
+
+// buttony
+.btn {
+	&:not(.btn-icon) {
+		display: inline-block;
+	}
+	&-circ {}
+	&-oval {
+		border-radius: $bor-RADIUS;
+		&:not(.btn-icon) {
+			padding: calc(#{$fz-NAV-LAND} * .7) calc(var(--btn-pad-R) * 3) calc(#{$fz-NAV-LAND} * .7);
+
+			// min-width: 20em;
+			@include mq(mq-land) {
+				padding: calc(#{$fz-NAV-LAND} * .7) var(--btn-pad-R, 2em) calc(#{$fz-NAV-LAND} * .8);
+				// min-width: initial;
+			}
+		}
+	}
+	&-fill {
+		background-color: var(--btn-highlight);
+	}
+	&-icon {
+		// position: absolute;
+		// right: .8em;
+		display: flex;
+		padding: .8em .8em .8em;
+		@include mq(mq-land) {
+			// position: relative;
+			// min-width: initial;
+		}
+	}
+	&-outline {
+		border: $line-THICK solid var(--color-contrast-high);
+	}
+}
+
+// .eab-dashboard__detail-actions {
+// 	.btn-oval {
+// 		width: 100%;
+// 		max-width: 100%;
+// 	}
+// }

@@ -1,0 +1,126 @@
+:root {
+	// --pad-T: clamp(1.25rem, 0.9489rem + 0.2273vw, 1.75rem);
+	// --pad-T: clamp(1.25rem, 0.9489rem + 0.2273vw, 2.75rem);
+	--pad-T: calc(20px + (30 - 20) * ((100vw - 320px) / (2560 - 320)));
+	--pad-R: calc(20px + (24 - 20) * ((100vw - 320px) / (2560 - 320)));
+	--btn-pad-R: 1.5em;
+	--gap: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
+	--hero-gap: calc(28px + (24 - 28) * ((100vw - 320px) / (2560 - 320)));
+	--fscreen-T: var(--pad-T);
+	--fscreen-R: var(--pad-R);
+
+	// --wrapper-padding-inline: 1rem;
+	// --wrapper-padding-inline: calc(10px + (16 - 10) * ((100vw - 320px) / (2560 - 320)));
+	--wrapper-padding-inline: var(--pad-R);
+	--wrapper-max-width: 90rem;
+
+	// --hmbrgr-T: calc(3px + (18 - 3) * ((100vw - 320px) / (1920 - 320)));
+
+	--touch-S: 28px;
+	--icon-S: calc(32px + (48 - 32) * ((100vw - 320px) / (2560 - 320)));
+	--dsalpha-1: 0.0;
+	--dsalpha-2: 0.0;
+	--maW: 1440;
+
+	--logo-H: calc(36px + (42 - 36) * ((100vw - 320px) / (2560 - 320)));
+	--header-H: 50vh;
+	--dir-LR: 1;
+
+	--gallery-H: 80dvh;
+
+	// --logo-H: 100px;
+
+	--paralax-X: 20rem;
+
+
+	// --menu-items: 16;
+	--dot-R: 4px;
+	
+	@media (pointer: coarse) {
+		--touch-S: 42px;
+		--icon-S: 36px;
+		--dot-R: 6px;
+	}
+}
+
+/* GLOBAL SIZES */
+// $touch-S: 40px;
+$touch-S: var(--touch-S);
+$sidebar-W: 127px;
+
+/* CSS TRANSITION VARS */
+$cubic: cubic-bezier(.13,.87,.25,1.1);
+$cubic2: cubic-bezier(.13,1.5,.61,1.1);
+$cubic3: cubic-bezier(.13,1.5,.61,1.7);
+$cubic4: cubic-bezier(.29,.88,.84,1.1);
+$global-transistion-duration: 0.65s;
+$intro-t: 0.875s;
+$dur: 0.35;
+$stagger: 0.15;
+$prlx-dist: 30px;
+$base-T: 0.65;
+
+/* GLOBAL FONT-SIZE */
+// $fz-NAV: calc(24px + (15 - 24) * ((100vw - 320px) / (1920 - 320)));
+$fz-H1: calc(66px + (120 - 66) * ((100vw - 320px) / (1920 - 320)));
+$fz-H1-MEGA: calc(66px + (142 - 66) * ((100vw - 320px) / (1920 - 320)));
+$fz-H2: calc(30px + (40 - 30) * ((100vw - 320px) / (1920 - 320)));
+$fz-H3: calc(24px + (30 - 24) * ((100vw - 320px) / (1920 - 320)));
+// $fz-H4: calc(30px + (36 - 30) * ((100vw - 320px) / (1920 - 320)));
+$fz-H4: 16px;
+$fz-H5: $fz-H4;
+$fz-H6: $fz-H4;
+$fz-PLAIN: 13px;
+$fz-MINOR: calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320)));
+$fz-NAV: $fz-PLAIN;
+$fz-NAV-LAND: $fz-NAV;
+
+/* GLOBAL PADDING */
+$pad-T: var(--pad-T);
+$pad-R: var(--pad-R);
+$pad-B: $pad-T;
+$pad-L: $pad-R;
+
+/* GLOBAL MARGIN */
+$mar-T: $pad-T;
+$mar-R: $pad-R;
+$mar-B: $pad-B;
+$mar-L: $pad-L;
+
+
+/* HEADER */
+$header-H: 84px;
+
+/* LOGO */
+$logo-W: 100px;
+$logo-H: $logo-W;
+$mar-logo-H: 320px;
+
+/* NAVIGATION */
+$nav-GAP: 1rem;
+$nav-mar-T: $header-H+16px;
+$nav-item-BOR_C: red;
+$nav-BGR: lime;
+
+/* NAVIGATION HAMBURGER MENU */
+$ham-W: 60px;
+$ham-H: 60px;
+$ham-BGR: pink;
+$ham-C: green;
+$ham-PAD: 14px;
+$ham-BAR_STROKE: 2px;
+$ham-BAR_SPACE: 5px;
+
+
+/* FORM SPECIFIC */
+$bor-RADIUS: 10vmax;
+
+
+$line-THICK: 1px;
+$stroke-WIDTH: 1px;
+$border-size: calc(10px + (16 - 10) * ((100vw - 320px) / (1920 - 320)));
+$underline-size: 1px;
+
+
+$max-W: 90rem; // MEZI 1440px (90rem) a 1920px = BREAKPOINT
+$line-Lenght: 43rem;

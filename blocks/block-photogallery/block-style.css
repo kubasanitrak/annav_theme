@@ -1,0 +1,26 @@
+.ps-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--pad-T) * .25);
+    padding-block: calc(var(--pad-T) * 1) calc(var(--pad-T) * 1.5);
+}
+.ps-gallery--item {
+    height: 20vh;
+}
+@media screen and (orientation: landscape) {
+    .ps-gallery--item {
+        height: 33vh;
+    }
+}
+@media screen and (min-width: 1440px) {
+    .ps-gallery--item {
+        height: 25vh;
+    }
+}
+
+.ps-gallery--item img {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
+}

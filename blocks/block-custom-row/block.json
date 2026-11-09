@@ -1,0 +1,23 @@
+{
+    "name": "acf/custom-row",
+    "title": "Kamigos Custom Row (ACF Block)",
+    "description": "Row for custom column layout",
+    "category": "formatting",
+    "icon": "<svg viewBox='0 0 36 36' xmlns='http://www.w3.org/2000/svg'><path d='M.51 0 0 .51v1.41L1.92 0H.51zM2 15.48l-2 2v1.41l2-2v-1.41zM8.41 2l2-2H8.99l-2 2h1.42zM2 9.82l-2 2v1.41l2-2V9.82zM2 2h.75l2-2H3.33L0 3.33v1.42l2-2V2zM2 12.65l-2 2v1.41l2-2v-1.41zM11.23 2l2-2h-1.41l-2 2h1.41zM2 4.16l-2 2v1.42l2-2V4.16zM2 6.99l-2 2v1.42l2-2V6.99zM5.58 2l2-2H6.16l-2 2h1.42zM28.2 2l2-2h-1.41l-2 2h1.41zM31.03 2l2-2h-1.41l-2 2h1.41zM25.38 2l2-2h-1.42l-2 2h1.42zM33.86 2l2-2h-1.41l-2 2h1.41zM14.06 2l2-2h-1.41l-2 2h1.41zM16.89 2l2-2h-1.41l-2 2h1.41zM19.72 2l2-2h-1.41l-2 2h1.41zM22.55 2l2-2h-1.42l-2 2h1.42zM34 24h1l1-1v-1.41L33.59 24H34zM34 16l2-2v-1.41l-2 2V16zM34 19l2-2v-1.41l-2 2V19zM34 22h-1.41l-2 2H32l4-4v-1.41l-2 2V22zM29.59 22l-2 2H29l2-2h-1.41zM2 18.31l-2 2v1.41l2-2v-1.41zM34 7.52l2-2V4.1l-2 2v1.42zM26.59 22l-2 2H26l2-2h-1.41zM34 3.28v1.41l2-2V1.28l-2 2zM34 10.35l2-2V6.93l-2 2v1.42zM34 13.18l2-2V9.76l-2 2v1.42zM9.62 22l-2 2h1.41l2-2H9.62zM6.79 22l-2 2H6.2l2-2H6.79zM23.76 22l-2 2h1.42l2-2h-1.42zM2 22v-.87l-2 2V24h.55l2-2H2zM3.96 22l-2 2h1.42l2-2H3.96zM15.28 22l-2 2h1.41l2-2h-1.41zM12.45 22l-2 2h1.41l2-2h-1.41zM20.93 22l-2 2h1.42l2-2h-1.42zM18.1 22l-2 2h1.42l2-2H18.1zM4 20h17V4H4v16ZM6 6h13v12H6V6ZM13.93 12.78 11.5 9 7 16h11l-3-5-1.07 1.78zM23 4h9v16.01h-9z'/> <circle cx='16.5' cy='8.5' r='1.5'/></svg>",
+    "keywords": ["custom-col", "custom column"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true
+        },
+        "anchor": true,
+        "jsx": true,
+        "align": true
+    },
+    "align": "full"
+}

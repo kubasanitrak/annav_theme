@@ -1,1 +1,1 @@
-Custom WordPress theme for Kamigos.
+Custom WordPress theme.

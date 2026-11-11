@@ -3,11 +3,11 @@
 
 	function initPasswordToggle() {
 		var passField = document.getElementById('user_pass');
-		if (!passField || passField.dataset.kamigosToggle) {
+		if (!passField || passField.dataset.annavToggle) {
 			return;
 		}
 
-		passField.dataset.kamigosToggle = '1';
+		passField.dataset.annavToggle = '1';
 
 		var wrap = passField.closest('.user-pass-wrap') || passField.parentElement;
 		if (!wrap) {

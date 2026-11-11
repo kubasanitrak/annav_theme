@@ -24,13 +24,9 @@
 
 $argType = get_field( 'loop_argument_type' );
 
-$event_post_type = class_exists( 'EAB_Post_Types' ) ? EAB_Post_Types::POST_TYPE_EVENT  : 'eab_event';
-$training_post_type = class_exists( 'EAB_Post_Types' ) ? EAB_Post_Types::POST_TYPE_TRAINING : 'eab_training';
-
-
 if ( $argType === 'count' ) :
     $args = array(
-        'post_type'      => array( $event_post_type, $training_post_type ),
+        'post_type'      => 'post',
         'post_status'    => 'publish',
         'orderby'        => 'title',
         'order'          => 'ASC',
@@ -39,7 +35,7 @@ if ( $argType === 'count' ) :
 else :
     $todisplay = get_field( 'select_items' );
     $args      = array(
-        'post_type'      => array( $event_post_type, $training_post_type ),
+        'post_type'   => 'any',
         'post_status' => 'publish',
         'orderby'     => 'post__in',
         'post__in'    => is_array( $todisplay ) ? $todisplay : array(),
@@ -76,7 +72,7 @@ endif;
             while ( $the_query->have_posts() ) : $the_query->the_post();
             $POST_ID = get_the_ID();
             $POST_TITLE = get_the_title();
-            $EVT_SCHEDULE = class_exists( 'EAB_Event' ) ?EAB_Event::get_schedule_summary($POST_ID) : '';
+            $EVT_SCHEDULE = get_the_date();
         ?>
         <div class="events-card events-card--grid" data-post-id="<?php echo $POST_ID; ?>">
             <div class="events-card__header">

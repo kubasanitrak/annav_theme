@@ -27,8 +27,7 @@ get_header(); ?>
 				<!-- </h1> -->
 			<!-- </div> -->
 			<!-- <div class="content"> -->
-				<?php #the_content(); ?>
-				<?php echo do_shortcode('[eab_event_detail]'); ?>
+				<?php the_content(); ?>
 				<?php 
 				?>
 			<!-- </div> -->

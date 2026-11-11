@@ -1,16 +1,24 @@
  @font-face {
 	font-family: 'FF-Reg';
 	src:
-		url("../fonts/Fellix-SemiBold.woff") format("woff"),
-		url("../fonts/Fellix-SemiBold.woff2") format("woff2");
+		url("../fonts/InstrumentSans-Regular.woff") format("woff"),
+		url("../fonts/InstrumentSans-Regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
-// @font-face {
-// 	font-family: 'FF-Med';
-// 	src:
-// 		url("../fonts/NeueHaasGrotDisp-65Medium.woff") format("woff"),
-// 		url("../fonts/NeueHaasGrotDisp-65Medium.woff2") format("woff2");
-// 	font-weight: normal;
-// 	font-style: normal;
-// }
+@font-face {
+	font-family: 'FF-Bold';
+	src:
+		url("../fonts/InstrumentSans-Medium.woff") format("woff"),
+		url("../fonts/InstrumentSans-Medium.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'FF-Title';
+	src:
+		url("../fonts/Thaw-Light.woff") format("woff"),
+		url("../fonts/Thaw-Light.woff2") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+}

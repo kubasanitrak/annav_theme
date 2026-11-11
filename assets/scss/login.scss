@@ -21,7 +21,7 @@
 
 
 body.login.annav_login {
-	background-color: var(--annav-ochre);
+	background-color: var(--annav-ivory);
 	font-family: 'FF-Reg', sans-serif;
 	color: var(--black);
 	min-height: 100vh;
@@ -119,12 +119,6 @@ body.login.annav_login {
 	.annav_login-forgot {
 		margin-top: calc(var(--gap, 1rem) * 0.5);
 	}
-
-	.eab-auth-notice {
-		text-align: center;
-		font-size: $fz-H4;
-	}
-
 
 	#loginform label,
 	#lostpasswordform label,
@@ -291,7 +285,7 @@ body.login.annav_login {
 		&:hover,
 		&:focus {
 			background-color: var(--black);
-			color: var(--annav-ochre);
+			color: var(--annav-ivory);
 		}
 	}
 

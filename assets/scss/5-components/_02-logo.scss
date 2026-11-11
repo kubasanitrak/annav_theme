@@ -20,7 +20,28 @@
 		fill: var(--color-highlight);
 	}
 }
+/*
+.header .logo,
+.section-footer .logo {
+	width: max-content;
+	max-width: 100%;
+}
 
+.logo-wordmark {
+	margin: 0;
+	line-height: 1;
+	color: var(--color-contrast-high);
+	white-space: nowrap;
+}
+
+.header .logo-wordmark {
+	font-size: 1.25rem;
+}
+
+.section-footer .logo-wordmark {
+	font-size: clamp(1.75rem, 3vw, 3rem);
+}
+*/
 .section-footer .logo {
     width: 100%;
 	@include mq(mq-land) {

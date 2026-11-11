@@ -23,21 +23,9 @@
 <?php
 $argType = get_field( 'loop_argument_type' );
 
-$instructor_post_type = class_exists( 'EAB_Post_Types' )
-    ? EAB_Post_Types::POST_TYPE_INSTRUCTOR
-    : 'eab_instructor';
-/*
-$event_post_type = class_exists( 'EAB_Post_Types' )
-? EAB_Post_Types::POST_TYPE_EVENT  : 'eab_event';
-$training_post_type = class_exists( 'EAB_Post_Types' )
-? EAB_Post_Types::POST_TYPE_TRAINING : 'eab_training';
-
-'post_type'      => array( $event_post_type, $training_post_type ),
-*/
-
 if ( $argType === 'count' ) :
     $args = array(
-        'post_type'      => $instructor_post_type,
+        'post_type'      => 'post',
         'post_status'    => 'publish',
         'orderby'        => 'title',
         'order'          => 'ASC',
@@ -46,7 +34,7 @@ if ( $argType === 'count' ) :
 else :
     $todisplay = get_field( 'select_items' );
     $args      = array(
-        'post_type'   => $instructor_post_type,
+        'post_type'   => 'any',
         'post_status' => 'publish',
         'orderby'     => 'post__in',
         'post__in'    => is_array( $todisplay ) ? $todisplay : array(),

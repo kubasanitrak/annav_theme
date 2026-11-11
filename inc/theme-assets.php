@@ -19,7 +19,7 @@ function annav_asset_version( $relative_path ) {
 }
 
 /**
- * Member / auth page slugs that use public.css (EAB forms, account).
+ * Member / auth page slugs that use public.css.
  *
  * @return string[]
  */
@@ -32,38 +32,18 @@ function annav_public_asset_page_slugs() {
 }
 
 /**
- * Whether the current view needs EAB / member-area styles.
+ * Whether the current view needs member-area styles.
  */
 function annav_needs_public_assets() {
 	if ( apply_filters( 'annav_enqueue_public_assets', false ) ) {
 		return true;
 	}
 
-	if ( annav_is_auth_page() ) {
-		return true;
-	}
-
-	if ( ! class_exists( 'EAB_Post_Types' ) ) {
-		return false;
-	}
-
-	if ( is_singular( EAB_Post_Types::get_bookable_post_types() ) ) {
-		return true;
-	}
-
-	if ( is_post_type_archive( EAB_Post_Types::get_bookable_post_types() ) ) {
-		return true;
-	}
-
-	if ( is_singular( 'page' ) && annav_current_page_has_eab_shortcode() ) {
-		return true;
-	}
-
-	return false;
+	return annav_is_auth_page();
 }
 
 /**
- * Auth-related pages outside EAB shortcode detection.
+ * Auth-related pages that load public.css.
  */
 function annav_is_auth_page() {
 	if ( ! is_singular( 'page' ) ) {
@@ -76,37 +56,6 @@ function annav_is_auth_page() {
 	}
 
 	return in_array( $post->post_name, annav_public_asset_page_slugs(), true );
-}
-
-/**
- * Mirror EAB plugin shortcode detection for theme public.css.
- */
-function annav_current_page_has_eab_shortcode() {
-	$post = get_post();
-	if ( ! $post || empty( $post->post_content ) ) {
-		return false;
-	}
-
-	$shortcodes = array(
-		'eab_events_grid',
-		'eab_events_list',
-		'eab_event_detail',
-		'eab_book_button',
-		'eab_register',
-		'eab_login',
-		'eab_set_password',
-		'eab_checkout',
-		'eab_dashboard',
-		'eab_basket_count',
-	);
-
-	foreach ( $shortcodes as $shortcode ) {
-		if ( has_shortcode( $post->post_content, $shortcode ) ) {
-			return true;
-		}
-	}
-
-	return false;
 }
 
 /**

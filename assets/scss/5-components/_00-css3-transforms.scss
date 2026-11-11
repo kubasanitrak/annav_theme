@@ -365,15 +365,13 @@
 	--btn-highlight: var(--annav-ivory);
 }
 
-.events-card ,
-.eab-card  {
+.events-card {
 	.icon {
 		transition:
 			background-color #{$dur}s ease-in-out,
 			border-color #{$dur}s ease-in-out;
 	}
-	.events-card__media,
-	.eab-card__media {
+	.events-card__media {
 		transform: rotate(0deg);
 		transition:
 			transform #{$dur}s ease-in-out;
@@ -389,8 +387,7 @@
 			border-color: var(--color-highlight);
 			background-color: var(--color-highlight);
 		}
-		.events-card__media,
-		.eab-card__media {
+		.events-card__media {
 			outline: none;
 			transform: rotate(-3deg);
 		}

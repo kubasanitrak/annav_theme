@@ -1,6 +1,6 @@
 {
     "name": "acf/rozvrh-table",
-    "title": "Kamigos Rozvrh table (ACF Block)",
+    "title": "Rozvrh table (ACF Block)",
     "description": "A custom table block.",
     "category": "formatting",
     "icon": "admin-comments",

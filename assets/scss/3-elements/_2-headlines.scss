@@ -1,26 +1,30 @@
-h1, 
-.h1 {
+h1, .h1 {
 	font-size: $fz-H1;
 }
-h2, 
-.h2 {
+h2, .h2 {
 	font-size: $fz-H2;
+	line-height: 120%;
 	
 }
-h3, 
-.h3 {
+h1, .h1,
+h3, .h3 {
+	line-height: 118%;
+}
+h3, .h3 {
 	font-size: $fz-H3;
 }
-h4, 
-.h4 {
+h4, .h4,
+h5, .h5,
+h6, .h6 {
+	line-height: 130%;
+}
+h4, .h4 {
 	font-size: $fz-H4;
 }
-h5, 
-.h5 {
+h5, .h5 {
 	font-size: $fz-H5;
 }
-h6, 
-.h6 {
+h6, .h6 {
 	font-size: $fz-H6;
 }
 h1,
@@ -36,7 +40,7 @@ h3, .h3,
 h4, .h4,
 h5, .h5,
 h6, .h6 {
-	line-height: 1.1em;
+	// line-height: 1.1em;
 }
 
 .section-title {

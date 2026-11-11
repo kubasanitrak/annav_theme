@@ -2,34 +2,24 @@
 /**
  * Custom wp-login.php styling.
  *
- * Registration is handled by the Events and Bookings plugin.
- *
  * @package annav_theme
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * Registration page URL (EAB plugin).
+ * Registration page URL.
  */
 function annav_auth_register_url() {
-	// if ( class_exists( 'EAB_Event' ) ) {
-		// return EAB_Event::get_register_url();
-	// }
-
 	return home_url( '/registrace/' );
 }
 
 /**
- * Login page URL (EAB plugin or wp-login.php).
+ * Login page URL.
  *
  * @param string $redirect Optional redirect target.
  */
 function annav_auth_login_url( $redirect = '' ) {
-	if ( class_exists( 'EAB_Event' ) ) {
-		return EAB_Event::get_login_url( $redirect );
-	}
-
 	return wp_login_url( $redirect );
 }
 

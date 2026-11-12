@@ -70,8 +70,9 @@ $theme_uri = get_template_directory_uri();
 	<script> document.body.className="js";</script>
 
 	<div class="header" id="headerID" data-theme="<?php echo $DATA_THEME; ?>">
-		<div class="logo-container" >
-			<div class="svg-container logo" id="logoID" style="--aspect-ratio: 352/107;">
+		<!-- style="background-color: pink;" -->
+		<div class="logo-container " id="logo_header_ID" >
+			<div class="svg-container logo" style="--aspect-ratio: 352/107;">
 				<!-- LOGO SVG -->
 				<?php get_template_part( 'template-parts/logo_header', 'top' ); ?>
 				<!-- LOGO SVG -->

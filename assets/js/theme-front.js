@@ -241,4 +241,45 @@
 	}
 
 	window.addEventListener('load', docLoaded);
+
+
+	// create
+	let mm = gsap.matchMedia();
+	//list as many as you'd like
+	// gsap.registerPlugin(scrollTrigger);
+
+	let _headerLogo = document.getElementById('logo_header_ID'),
+	_headerRatio = _headerLogo.offsetWidth / _headerLogo.offsetHeight;
+
+	// console.log(_headerRatio);
+
+	// add a media query. When it matches, the associated function will run
+	mm.add("(max-width: 800px)", () => {
+	 let tl = gsap.timeline({
+		 scrollTrigger: {
+			 trigger: '.header-trigger',
+			 start: 'top top',
+			 // end: '30dvh top',
+			 // end: () => "+=" + (window.innerHeight * 0.5),
+			 end: () => (window.innerHeight * 0.25) + " 10%",
+			 scrub: true,
+			 // markers: true
+		 }
+	 });
+	 tl
+	 	.to('#logo_header_ID .logo', {
+			 // scale: .5,
+			y: -20,
+			duration: 2
+		 }, 'start')
+		 .to('#logo_header_ID', {
+			 // scale: .5,
+			height: 100,
+			width: 100 * _headerRatio,
+			duration: 2
+		 }, 'start')
+	});
+
+	// later, if we need to revert all the animations/ScrollTriggers...
+	// mm.revert();
 })();

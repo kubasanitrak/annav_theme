@@ -111,6 +111,22 @@ function annav_enqueue_frontend_assets() {
 	);
 
 	wp_enqueue_script(
+		'annav_gsap',
+		$theme_uri . '/assets/js/libs/gsap.min.js',
+		array(),
+		annav_asset_version( '/assets/js/libs/gsap.min.js' ),
+		true
+	);
+
+	wp_enqueue_script(
+		'annav_scrolltrigger',
+		$theme_uri . '/assets/js/libs/ScrollTrigger.min.js',
+		array(),
+		annav_asset_version( '/assets/js/libs/ScrollTrigger.min.js' ),
+		true
+	);
+
+	wp_enqueue_script(
 		'annav_theme-front',
 		$theme_uri . '/assets/js/theme-front.js',
 		array(),

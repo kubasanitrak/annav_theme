@@ -31,7 +31,7 @@ $PADDED_CONTENT = get_field('padded_content');
 		<?php if($PADDED_CONTENT) : ?>
 			<div data-theme="default" class="section pad-T pad-B-3 section-nowrapper" >
 			<?php else: ?>
-			<div data-theme="default" class="section section-content" >
+			<div data-theme="default" class="section section-content header-trigger" >
 		<?php endif; ?>
 
 			<?php the_content(); ?>

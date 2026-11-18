@@ -229,6 +229,12 @@ add_action( 'after_setup_theme', 'my_theme_color_features' );
 /* WORKAROUND WP NASTY BUG PREPENDING AUTO TO SIZES ATTR */
 /* / — / — / — / —  / — / — / — / — / — / – / — / — / — / — / – */
 /* / — / — / — / —  / — / — / — / — / — / – / — / — / — / — / – */
+/*
+ * Stops core from prepending sizes="auto" and from printing:
+ * img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+ * That intrinsic size forces a 2:1 box and stretches images.
+ */
+add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' );
 add_filter(
     'wp_content_img_tag',
     static function ( $image ) {
@@ -292,3 +298,4 @@ function annav_login_myaccount_shortcode( $atts ) {
 	return '<a class="btn btn-outline btn-oval hover-bgr caps" href="' . esc_url( $link ) . '">' . esc_html( $text ) . '</a>';
 }
 add_shortcode( 'login_myaccount_link', 'annav_login_myaccount_shortcode' );
+

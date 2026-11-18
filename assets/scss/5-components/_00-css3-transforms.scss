@@ -145,24 +145,42 @@
 	
 	.scroll-trigger {
 
-		&--linethrough,
-		&--faq {
-			&::before {
-				display: none;
-				@include mq(mq-land) {
-					display: block;
-					transition: transform calc(#{$global-transistion-duration} * 2) 0.0s $cubic4;
-					transform: scaleY(0);
-				}
+		&--clip {
+			overflow: hidden;
+			img {
+				clip-path: inset(0 0 0 0);
+				transform: scale( 1.00 );
+				transition:
+					transform $scroll-transistion-duration 0.0s $cubic,
+					clip-path $scroll-transistion-duration 0.0s $cubic;
 			}
 			&.inView {
-				&::before {
-					@include mq(mq-land) {
-						transform: scaleY(1);
-					}
+				img {
+					transform: scale( 1.03 );
+					clip-path: inset( var(--pad-T) 0 var(--pad-T) 0 );
+					transition-delay: 0.0s #{$dur}s;
 				}
 			}
 		}
+
+		// &--linethrough,
+		// &--faq {
+		// 	&::before {
+		// 		display: none;
+		// 		@include mq(mq-land) {
+		// 			display: block;
+		// 			transition: transform calc(#{$global-transistion-duration} * 2) 0.0s $cubic4;
+		// 			transform: scaleY(0);
+		// 		}
+		// 	}
+		// 	&.inView {
+		// 		&::before {
+		// 			@include mq(mq-land) {
+		// 				transform: scaleY(1);
+		// 			}
+		// 		}
+		// 	}
+		// }
 		
 
 		&--faq {

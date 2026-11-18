@@ -7,30 +7,24 @@
  */
 ?>
 <?php
-    $CLS_W = 'custom-columns--item ';
+    $CLS_W = 'split-cols--item ';
     
     $WIDE_OR_NARROW = get_field('wide_or_narrow');
-    // if($IS_CLIPPATH) :
-        $CLS_W .= ' ';
-        $CLS_W .= 'custom-columns--item_' . strval($WIDE_OR_NARROW);
-    // endif;
+    $CLS_W .= ' ';
+    $CLS_W .= 'split-cols--item_' . strval($WIDE_OR_NARROW);
 
     $IS_IMG = get_field('is_img');
-    $IS_STICKY = get_field('is_sticky');
     $IMG_ID = get_field('custom_img_id');
-
-    $ROUNDED_CORNERS = get_field('has_round_corners');
-    if($ROUNDED_CORNERS) :
-        $CLS_W .= ' ';
-        $CLS_W .= 'img-container--round-corners';
-    endif;
-    if($IS_STICKY) :
-        $CLS_W .= ' ';
-        $CLS_W .= 'sticky sticky-pad-T';
-    endif;
     
     // Create class attribute allowing for custom "className" values.
     $classes = ( ! empty( $block['className'] ) ) ? sprintf( $CLS_W . ' %s', $block['className'] ) : $CLS_W;
+
+    $isFullWidth = get_field( 'is_full_width' );
+    $customWidth = get_field( 'width_perc' );
+    $class_name = 'carousel-img--item';
+    if( ! empty( $customWidth ) ) :
+        $class_name .= ' ' . 'carousel-img--item---width_' . $customWidth;
+    endif;
 
     // Support custom id values.
     $block_id = '';
@@ -41,14 +35,14 @@
 
 <div
     <?php
-    echo wp_kses_data(
-        get_block_wrapper_attributes(
-            array(
-                'id'    => $block_id,
-                'class' => esc_attr( $classes ),
+        echo wp_kses_data(
+            get_block_wrapper_attributes(
+                array(
+                    'id'    => $block_id,
+                    'class' => esc_attr( $classes ),
+                )
             )
-        )
-    );
+        );
     ?>
 >
 
@@ -60,16 +54,11 @@
               $count = count($IMGS);
             endif;
 
-            if($count > 1) :
-                // CAROUSEL CLASS
-                // $CLS .= ' ';
-            endif;
-
             if( $IMGS ) :
 
         ?>
             <?php if($count > 1) : ?>
-                <div class="carousel-img" id="">
+                <div class="<?php echo $class_name; ?>" id="">
             <?php endif; ?>
                 <?php
                     
@@ -94,6 +83,9 @@
                         $img_src = wp_get_attachment_image_url($image_ID, 'medium');
                         $img_srcset = wp_get_attachment_image_srcset($image_ID, 'full');
 
+                        $itemCAPTION = get_sub_field('img_caption');
+                        $itemCAPTION2 = get_sub_field('img_caption2');
+
                         if ($count > 1) :
                             $style = "--img-aspect-ratio: " . $min_ratio;
                     ?>
@@ -102,6 +94,14 @@
                                     data-srcset="<?php echo esc_attr($img_srcset); ?>" 
                                     data-src="<?php echo esc_url($img_src); ?>" 
                                     data-sizes="auto" alt="">
+                                <div class="image-caption">
+                                    <?php if($itemCAPTION) : ?>
+                                        <p class="plain carousel-img--item_txt"><?php echo esc_attr( $itemCAPTION ); ?></p>
+                                    <?php endif; ?>
+                                    <?php if($itemCAPTION2) : ?>
+                                        <p class="plain carousel-img--item_txt"><?php echo esc_attr( $itemCAPTION2 ); ?></p>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                     <?php
                         else :
@@ -115,6 +115,7 @@
                     endforeach;
                     ?>
                 <?php if($count > 1) : ?>
+
                     </div> <!-- END CAROUSEL-IMG -->
                 <?php endif; ?>
             <?php

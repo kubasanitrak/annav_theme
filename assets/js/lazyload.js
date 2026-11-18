@@ -12,8 +12,13 @@
 			item.setAttribute('src', item.dataset.src);
 		}
 
-		if (item.dataset.sizes) {
+		if (item.dataset.sizes && item.dataset.sizes !== 'auto') {
 			item.setAttribute('sizes', item.dataset.sizes);
+		} else if (item.dataset.sizes === 'auto') {
+			// "auto" is a lazysizes hint, not a real sizes value. Copying it
+			// makes Chrome apply contain-intrinsic-size: 300px 150px.
+			var width = item.clientWidth;
+			item.setAttribute('sizes', width ? width + 'px' : '100vw');
 		}
 
 		item.classList.remove('lazyload');

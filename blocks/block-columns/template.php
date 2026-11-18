@@ -8,8 +8,7 @@
 
 ?>
 <?php
-    $CLS_W = 'split-cols';
-    $IMG_ID = get_field('custom_img_id');   
+    $CLS_W = 'split-cols';  
 
     // Create class attribute allowing for custom "className" values.
     $classes = ( ! empty( $block['className'] ) ) ? sprintf( $CLS_W . ' %s', $block['className'] ) : $CLS_W;
@@ -34,15 +33,8 @@
     ?>
 >
     <div class="split-cols--item split-cols--item_img">
-        <?php
-            $img_src = wp_get_attachment_image_url( $IMG_ID, 'medium' );
-            $img_srcset = wp_get_attachment_image_srcset( $IMG_ID, 'full' );
-        ?>
-        <div class="split-cols--img">
-            <img decoding="async" class="lazyload" data-srcset="<?php echo esc_attr( $img_srcset ); ?>" data-src="<?php echo esc_url( $img_src ); ?>" data-sizes="" alt="" loading="lazy">
-        </div>
-    </div>
-    <div class="split-cols--item split-cols--item_caption">
+        <!-- INNER BLOCKS RESTRICTED TO CUSTOM COLS ONLY -->
+        <?php $allowed_blocks = [ 'acf/custom-column' ]; ?>
         <InnerBlocks/>
     </div>
 </div>

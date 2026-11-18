@@ -8,27 +8,31 @@
 
     // Create class attribute allowing for custom "className" values.
     
-    $ADD_TO_SCROLL_MENU = get_field('add_link_to_main_nav');
+    $IS_IMG = get_field('is_img');
+    $IMG_ID = get_field('custom_img_id');
 
     // $IS_COLUMN_CONTAINER = get_field('is_column_container');
     $IS_FULL_W = get_field('is_full_width');
     $IS_COLS = get_field('is_cols');
-    $HAS_SPLIT = get_field('is_split_screen');
+    // $HAS_SPLIT = get_field('is_split_screen');
     $ANIMATE_ON_SCROLL = get_field('animate_on_scroll');
     $BGR_COLOR = get_field('section_bgr');
-    $MENU_TEXT = get_field('menu_text');
-    
-    // $SHOW_ARR_DOWN = get_field('display_scroll_down_arr');
 
     $CLS_W = '';
-    if(!$IS_COLS) :
-        $CLS_W = 'section';
-    else:
-        $CLS_W = 'even-columns';
+    $CLS_W = 'section';
+    if($IS_COLS) :
+        $CLS_W .= ' section-split-cols';
+        $CLS_W .= get_field('cols-align') ? get_field('cols-align') : '';
     endif;
 
     if($IS_FULL_W && !$IS_COLS) :
         $CLS_W .= ' section-full-width';
+    else :
+        $CLS_W .= ' section-padded';
+    endif;
+    
+    if($IS_IMG) :
+        $CLS_W .= ' section-img';
     endif;
 
     // scroll-trigger--news, scroll-trigger--morph, scroll-trigger--contact, scroll-trigger--faq
@@ -38,57 +42,6 @@
         $CLS_W .= get_field('animation_type');
     endif;
 
-    if($HAS_SPLIT) :
-        $CLS_W .= ' section-split-screen';
-    endif;
-/*
-<div class="even-columns scroll-trigger scroll-trigger--contact">
-<div class="even-columns--item">
-<div class="section-contact--row section-contact--row_legal scroll-trigger scroll-trigger--contact">
-
-repeater s poli s podmíněnou logikou:
-- faq-item
-? is sticky headline ?
-    ano => counter (pro --grid-row-$i CSS variable)
-        => headline field
-        => subheadline field
-    ne => simple textfield (bez wysiwyg)
-
-
-
-<div class="faq-item faq-item--headline scroll-trigger scroll-trigger--faq" style="--grid-row: 1">
-    <h1 class="faq-item--headline_title"></h1>
-    <h3 class="faq-item--headline_caption caps strong"></h3>
-</div>
-
-<div class="faq-item faq-item--claim" >
-    <h3 class="faq-item--caption"></h3>   
-</div>
-
-<div class="faq-item faq-item--headline scroll-trigger scroll-trigger--faq" style="--grid-row: 3">
-    <h1 class="faq-item--headline_title"></h1>
-    <h3 class="faq-item--headline_caption caps strong"></h3>
-</div>
-
-<div class="faq-item faq-item--headline scroll-trigger scroll-trigger--faq" style="--grid-row: 5">
-    <h1 class="faq-item--headline_title"></h1>
-    <h3 class="faq-item--headline_caption caps strong"></h3>
-</div>
-*/
-    // $CLS_W = '';
-    
-    // if($BGR_SHAPE) :
-    //     $CLS_W .= ' scroll-trigger--shape bgr-shape bgr-shape--';
-    //     $CLS_W .= strval($BGR_SHAPE);
-    // endif;
-    
-    // if($BGR_SHAPE_COLOR) :
-    //     $CLS_W .= ' bgr-shape-color--';
-    //     $CLS_W .= strval($BGR_SHAPE_COLOR);
-    // endif;
-
-    // PADDED OR FULL WIDTH
-    // $CLS_W .= !$ADD_TO_SCROLL_MENU ? ' section-padded' : ' section-full-width' ;
     // Create class attribute allowing for custom "className" values.
     $classes = ( ! empty( $block['className'] ) ) ? sprintf( $CLS_W . ' %s', $block['className'] ) : $CLS_W;
 
@@ -100,20 +53,13 @@ repeater s poli s podmíněnou logikou:
 
     // Support custom id values.
     //*/
-    $block_id = $ADD_TO_SCROLL_MENU ? esc_attr( get_field( 'id_to_scroll' ) ) : '';
-    /*/
-    $block_id = '';
-    if ( ! empty( $block['anchor'] ) ) :
-        // $block_id = esc_attr( $block['anchor'] );
-        $block_id = esc_attr( get_field( 'id' ) );
-    endif;
-    //*/
+    $block_id = esc_attr( get_field( 'id' ) ) ? esc_attr( get_field( 'id' ) ) : '';
 
 ?>
     
 
 
-<?php if ( ! $is_preview ) { ?>
+<?php #if ( ! $is_preview ) { ?>
 
 <div data-theme="<?php echo $DATA_THEME ?>"
     <?php
@@ -127,30 +73,43 @@ repeater s poli s podmíněnou logikou:
     );
     ?>
 >
-<?php } ?>
+<?php #} ?>
 
-    
+    <?php #if(!$IS_IMG) : ?>
         
         <InnerBlocks/>
+
+    <?php #else : ?>
+
+        <?php
+            #$img_src = wp_get_attachment_image_url( $IMG_ID, 'medium' );
+            #$img_srcset = wp_get_attachment_image_srcset( $IMG_ID, 'full' );
+        ?>
+        <!-- <img class="lazyload" data-srcset="<?php #echo esc_attr( $img_srcset ); ?>" data-src="<?php #echo esc_url( $img_src ); ?>" data-sizes="auto" alt=""> -->
+
+    <?php #endif; ?>
 
     
 <!-- TODO ALLOWED INNER BLOCKS IF IS_COLUMNS -->
    
 
-<?php if ( ! $is_preview ) { ?>
+<?php #if ( ! $is_preview ) { ?>
     
     </div>
-<?php } ?>
-    
+<?php #} ?>
+
 <?php 
 /*
 transparent : Transparent
 dark : Dark
 default : Light
 
-news : News
-morph : Shape Bgr Morph
-contact : Contact Rows
-faq : FAQ
+paralax : paralax
+clip : clip_path
+
+cols-align:
+jc_start : Left
+jc_center : Center
+jc_space_between : Space Between
 */
  ?>

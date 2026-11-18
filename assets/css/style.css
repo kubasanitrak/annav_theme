@@ -533,6 +533,8 @@ h3, .h3 {
 
 h3, .h3 {
   font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
+  max-width: 30ch;
+  margin-inline: auto;
 }
 
 h4, .h4,
@@ -1025,20 +1027,18 @@ sub {
 .js .header .logo svg {
   fill: var(--annav-blue);
 }
-.js .scroll-trigger--linethrough::before, .js .scroll-trigger--faq::before {
-  display: none;
+.js .scroll-trigger--clip {
+  overflow: hidden;
 }
-@media screen and (orientation: landscape) {
-  .js .scroll-trigger--linethrough::before, .js .scroll-trigger--faq::before {
-    display: block;
-    transition: transform calc(0.65s * 2) 0s cubic-bezier(0.29, 0.88, 0.84, 1.1);
-    transform: scaleY(0);
-  }
+.js .scroll-trigger--clip img {
+  clip-path: inset(0 0 0 0);
+  transform: scale(1);
+  transition: transform 1.25s 0s cubic-bezier(0.13, 0.87, 0.25, 1.1), clip-path 1.25s 0s cubic-bezier(0.13, 0.87, 0.25, 1.1);
 }
-@media screen and (orientation: landscape) {
-  .js .scroll-trigger--linethrough.inView::before, .js .scroll-trigger--faq.inView::before {
-    transform: scaleY(1);
-  }
+.js .scroll-trigger--clip.inView img {
+  transform: scale(1.03);
+  clip-path: inset(var(--pad-T) 0 var(--pad-T) 0);
+  transition-delay: 0s 0.35s;
 }
 .js .scroll-trigger--faq > * {
   opacity: 0;
@@ -1356,17 +1356,31 @@ html *::-webkit-selection {
   display: none;
 }
 
-.section:not(.full-bleed) {
+.section:not(.section-full-width) {
   padding-inline: var(--wrapper-padding-inline);
 }
-.section-content {
-  padding-block: calc((var(--pad-T) * 15.0) + (var(--pad-T) * 8.0)) calc(var(--pad-T) * 6.33333333);
-  min-height: 150dvh;
+.section:first-of-type, .section-content {
+  padding-block-start: calc((var(--pad-T) * 15.0) + (var(--pad-T) * 8.0));
 }
 @media screen and (orientation: landscape) {
-  .section-content {
-    padding-block: calc(var(--pad-T) * 8.33333333) calc(var(--pad-T) * 6.33333333);
+  .section:first-of-type, .section-content {
+    padding-block-start: calc(var(--pad-T) * 8.5);
   }
+}
+.section-content {
+  padding-block-end: calc(var(--pad-T) * 6.5);
+}
+.section-padded {
+  padding-block: calc(var(--pad-T) * 1.0) calc(var(--pad-T) * 5.0);
+}
+.section-img {
+  overflow: hidden;
+  padding-block: 0 calc(var(--pad-T) * 3.0);
+}
+.section-img img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
 }
 .section-footer {
   background-color: var(--footer-bg);
@@ -1577,6 +1591,53 @@ html *::-webkit-selection {
   font-family: 'FF-Bold';
   font-weight: normal;
   font-style: normal;
+}
+
+.custom-row--cols {
+  padding-block: calc(var(--pad-T) * .75);
+}
+@media screen and (orientation: landscape) {
+  .custom-row--cols {
+    padding-inline: calc(var(--pad-R) * 3);
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--pad-R);
+  }
+}
+.custom-row--col {
+  padding-block: 0 calc(var(--pad-T) * .75);
+}
+.custom-row--col_title {
+  grid-column: 1 / span 4;
+}
+.custom-row--col_caption {
+  grid-column: 5 / span 2;
+}
+@media screen and (orientation: landscape) {
+  .custom-row--col {
+    padding-block: 0;
+  }
+}
+
+.section-feature .muted,
+.section-project-list .muted {
+  color: var(--annav-muted);
+}
+
+.project-list--header {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap);
+  padding-block-end: var(--pad-T);
+}
+
+.project-list--content h3 {
+  padding-block: calc(var(--pad-T) * .5);
+}
+@media screen and (orientation: landscape) {
+  .project-list--content h3 {
+    padding-block: 0;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

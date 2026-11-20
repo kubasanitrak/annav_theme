@@ -120,8 +120,10 @@
 		const observer = new IntersectionObserver(
 			function (entries) {
 				entries.forEach(function (entry) {
-					if (entry.intersectionRatio > 0.2) {
+					if (entry.intersectionRatio > 0.19) {
 						entry.target.classList.add('inView');
+					} else {
+						entry.target.classList.remove('inView');
 					}
 				});
 			},

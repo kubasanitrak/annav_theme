@@ -1,5 +1,7 @@
 <?php
 require_once get_template_directory() . '/inc/theme-assets.php';
+require_once get_template_directory() . '/inc/acf-json.php';
+require_once get_template_directory() . '/inc/acf-field-groups.php';
 
 add_action( 'after_setup_theme', 'annav_theme_setup' );
 function annav_theme_setup() {

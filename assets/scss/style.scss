@@ -394,7 +394,114 @@ html {
 			}
 		}
 }
-.split-cols {}
+
+/* Vložené | http://localhost:3000/annavenclovska.cz/ */
+
+.section-img {
+	width: 100%;
+}
+
+.section-split-cols {
+  display: flex;
+  flex-direction: column;
+	@include mq(mq-land) {
+		flex-direction: row;
+		align-items: stretch;
+		padding-inline: var(--pad-R, 1rem);
+	}
+
+	&.jc_start {
+		justify-content: flex-start;
+	}
+	&.jc_end {
+		justify-content: flex-end;
+	}
+	&.jc_center {
+		justify-content: center;
+	}
+	&.jc_space_between {
+		justify-content: space-between;
+	}
+
+	&.ai_stretch {
+		align-items: stretch;
+	}
+	&.ai_start {
+		align-items: flex-start;
+	}
+	&.ai_center {
+		align-items: center;
+	}
+	&.ai_end {
+		align-items: flex-end;
+	}
+
+	&.minh_50 {
+		min-height: 50vh;
+	}
+	&.minh_75 {
+		min-height: 75vh;
+	}
+	&.minh_100 {
+		min-height: 100vh;
+	}
+}
+.split-cols {
+	&--item {
+		box-sizing: border-box;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+
+		&.has-insets {
+			padding-block: var(--inset-t, 0%) var(--inset-b, 0%);
+			padding-inline: var(--inset-l, 0%) var(--inset-r, 0%);
+		}
+
+		@include mq(mq-land) {
+			&.v_align-top {
+				align-self: flex-start;
+			}
+			&.v_align-center {
+				align-self: center;
+			}
+			&.v_align-bottom {
+				align-self: flex-end;
+			}
+		}
+
+		&---inner {
+			width: 100%;
+			min-width: 0;
+		}
+		&---img_container {
+			width: 100%;
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+		}
+		&---caption {
+			padding-block: calc(var(--pad-T, 1rem) * .5) calc(var(--pad-T, 1rem) * 1.5);
+			padding-inline: calc(var(--pad-R, 1rem));
+			color: var(--color-labels);
+			@include mq(mq-land) {
+				padding-inline: 0;
+			}
+			&_txt {}
+		}
+	}
+}
+@for $i from 5 through 100 {
+	.split-cols--item--width_#{$i} {
+		width: 100%;
+		@include mq(mq-land) {
+			width: calc(#{$i}% * 1);
+		}
+	}
+}
 .section-feature,
 .section-project-list {
 	.muted {

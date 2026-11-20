@@ -147,18 +147,42 @@
 
 		&--clip {
 			overflow: hidden;
+			--stagger-int: .0;
+			> *:nth-of-type(2) {
+				--stagger-int: .5;
+			}
+			// > *:nth-of-type(2) {
+			// 	--stagger-int: 2.200;
+			// }
+			> *:nth-of-type(3) {
+				--stagger-int: .75;
+			}
 			img {
-				clip-path: inset(0 0 0 0);
-				transform: scale( 1.00 );
+				transform: scale( 1.04 );
+				clip-path: inset( calc(var(--pad-T) * 1.2) 0 calc(var(--pad-T) * 1.2) 0 );
+				opacity: 0;
+				// transition:
+				// 	clip-path $scroll-transistion-duration 0.0s ease-in-out,
+				// 	transform $scroll-transistion-duration 0.0s ease-in-out;
 				transition:
-					transform $scroll-transistion-duration 0.0s $cubic,
-					clip-path $scroll-transistion-duration 0.0s $cubic;
+					opacity #{$base-T}s 0.0s ease-in-out,
+					clip-path #{$scroll-transistion-duration}s 0.0s ease-in-out,
+					transform #{$scroll-transistion-duration}s 0.0s ease-in-out;
+			}
+			.split-cols--item---caption {
+				opacity: 0;
+				transition: opacity #{$base-T}s 0.0s ease-in-out;
 			}
 			&.inView {
 				img {
-					transform: scale( 1.03 );
-					clip-path: inset( var(--pad-T) 0 var(--pad-T) 0 );
-					transition-delay: 0.0s #{$dur}s;
+					opacity: 1;
+					transform: scale( 1.00 );
+					clip-path: inset(0 0 0 0);
+					transition-delay: calc(var(--stagger-int) * 1.0s);
+				}
+				.split-cols--item---caption {
+					opacity: 1;
+					transition-delay: calc((#{$scroll-transistion-duration} + var(--stagger-int)) * 1.0s);
 				}
 			}
 		}

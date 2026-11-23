@@ -52,6 +52,14 @@ html :where(.editor-styles-wrapper) {
 }
 
 
+/* Preview images get a real src in the editor (see theme-assets.php).
+   Keep them inside the column instead of at their file size. */
+.editor-styles-wrapper img.lazyloaded {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
 .scroll-trigger {
     &--faq {
     }

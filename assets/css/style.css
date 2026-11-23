@@ -567,6 +567,12 @@ h4 {
   line-height: 1em;
 }
 
+.project-detail--title {
+  font-family: 'FF-Title';
+  font-weight: normal;
+  font-style: normal;
+}
+
 sup, sub {
   vertical-align: baseline;
   position: relative;
@@ -2614,6 +2620,34 @@ html *::-webkit-selection {
   .project-list--content h3 {
     padding-block: 0;
   }
+}
+
+.project-detail--title {
+  color: var(--annav-blue);
+  text-transform: uppercase;
+}
+.project-detail--caption {
+  display: grid;
+  gap: var(--pad-R) var(--pad-T);
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+@media screen and (orientation: landscape) {
+  .project-detail--caption {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+  }
+}
+@media screen and (orientation: landscape) {
+  .project-detail--caption_col:nth-of-type(3), .project-detail--caption_col:nth-of-type(4) {
+    text-align: right;
+  }
+}
+.project-detail--caption_label {
+  font-size: calc(11px + (12 - 11) * ((100vw - 320px) / (1920 - 320)));
+}
+.project-detail--caption_label.muted {
+  color: var(--annav-muted);
 }
 
 /*# sourceMappingURL=style.css.map */

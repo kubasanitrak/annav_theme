@@ -33,6 +33,31 @@ $PADDED_CONTENT = get_field('padded_content');
 			<?php endif; ?>
 		<?php endif; ?>
 
+
+				<div data-theme="default" class="section section-projdet section-padded" >
+					<div class="project-detail--header">
+						<h1 class="project-detail--title">First Republic-era Villa</h1>
+					</div>
+					<div class="project-detail--caption">
+						<div class="project-detail--caption_col">
+							<p class="project-detail--caption_label muted">Location</p>
+							<p class="project-detail--caption_txt">Prague, Czechia</p>
+						</div>
+						<div class="project-detail--caption_col">
+							<p class="project-detail--caption_label muted">Year</p>
+							<p class="project-detail--caption_txt">2024</p>
+						</div>
+						<div class="project-detail--caption_col">
+							<p class="project-detail--caption_label muted">Typology</p>
+							<p class="project-detail--caption_txt">Private residence</p>
+						</div>
+						<div class="project-detail--caption_col">
+							<p class="project-detail--caption_label muted">Scope</p>
+							<p class="project-detail--caption_txt">Full turnkey execution</p>
+						</div>
+					</div>
+				</div>
+				
 			<?php the_content(); ?>
 
 				<div data-theme="default" class="section section-feature section-padded" >

@@ -330,4 +330,10 @@ html :where(.editor-styles-wrapper) {
   padding: 1rem;
 }
 
+.editor-styles-wrapper img.lazyloaded {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 /*# sourceMappingURL=style-editor.css.map */

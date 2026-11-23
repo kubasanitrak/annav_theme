@@ -524,3 +524,37 @@ html {
 }
 .project-list--label {
 }
+
+.project-detail {
+	&--header {}
+	&--title {
+		color: var(--annav-blue);
+		text-transform: uppercase;
+	}
+	&--caption {
+		display: grid;
+		gap: var(--pad-R) var(--pad-T);
+		grid-template-columns: 1fr;
+		grid-template-rows: auto;
+		@include mq(mq-land) {
+			grid-template-columns: repeat(4, 1fr);
+			grid-template-rows: 1fr;
+		}
+		&_col {
+			&:nth-of-type(3),
+			&:nth-of-type(4) {
+				@include mq(mq-land) {
+					text-align: right;
+				}
+			}
+
+		}
+		&_label {
+			font-size: $fz-MINOR;
+			&.muted {
+				color: var(--annav-muted);
+			}
+		}
+		&_txt {}
+	}
+}

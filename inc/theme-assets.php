@@ -186,3 +186,132 @@ function annav_enqueue_editor_styles() {
 	);
 }
 add_action( 'enqueue_block_editor_assets', 'annav_enqueue_editor_styles' );
+
+/**
+ * Same editor stylesheet inside the canvas iframe.
+ *
+ * enqueue_block_editor_assets loads in the parent editor window.
+ * The iframed canvas only receives styles enqueued on enqueue_block_assets.
+ */
+function annav_enqueue_editor_canvas_styles() {
+	if ( ! is_admin() ) {
+		return;
+	}
+
+	annav_enqueue_editor_styles();
+}
+add_action( 'enqueue_block_assets', 'annav_enqueue_editor_canvas_styles' );
+
+/**
+ * Give a lazy image a real src while ACF is painting the block preview.
+ *
+ * Front-end images ship with class "lazyload" and data-src / data-srcset only.
+ * assets/js/lazyload.js copies those onto src, and it is enqueued on the front
+ * only. The block editor never runs that script, so the img has no source.
+ * With no intrinsic size, width/height resolve to 0 and the preview is blank.
+ * The .lazyload rule itself only fades opacity; it is not what collapses the box.
+ *
+ * @param string $html Block preview HTML.
+ * @return string
+ */
+function annav_promote_lazy_images_for_editor( $html ) {
+	if ( ! is_string( $html ) || $html === '' || stripos( $html, 'data-src=' ) === false ) {
+		return $html;
+	}
+
+	$promoted = preg_replace_callback(
+		'/<img\b[^>]*?>/i',
+		'annav_promote_lazy_image_tag',
+		$html
+	);
+
+	return is_string( $promoted ) ? $promoted : $html;
+}
+
+/**
+ * Copy data-src onto src for a single img tag that the editor would otherwise leave empty.
+ *
+ * @param array $matches preg_replace_callback match. Index 0 is the tag.
+ * @return string
+ */
+function annav_promote_lazy_image_tag( $matches ) {
+	$tag = $matches[0];
+
+	if ( preg_match( '/(?:^|\s)src\s*=/i', $tag ) ) {
+		return $tag;
+	}
+
+	if ( ! preg_match( '/\bdata-src\s*=\s*(["\'])([^"\']+)\1/i', $tag, $src ) ) {
+		return $tag;
+	}
+
+	$attrs = ' src=' . $src[1] . $src[2] . $src[1];
+
+	// data-sizes="auto" is a lazysizes hint. Copying it to sizes makes Chrome
+	// reserve a 300×150 intrinsic box, so leave sizes alone.
+	if (
+		! preg_match( '/(?:^|\s)srcset\s*=/i', $tag )
+		&& preg_match( '/\bdata-srcset\s*=\s*(["\'])([^"\']+)\1/i', $tag, $srcset )
+	) {
+		$attrs .= ' srcset=' . $srcset[1] . $srcset[2] . $srcset[1];
+	}
+
+	$tag = preg_replace( '/\blazyload\b/', 'lazyloaded', $tag, 1 );
+
+	return preg_replace( '/<img\b/i', '<img' . $attrs, $tag, 1 );
+}
+
+/**
+ * Preview-buffer depth. Nested ACF blocks each open their own buffer.
+ *
+ * @return int
+ */
+function &annav_lazy_preview_depth() {
+	static $depth = 0;
+	return $depth;
+}
+
+/**
+ * Start capturing an ACF block template so preview images can be rewritten.
+ *
+ * @param array   $block      Block props.
+ * @param string  $content    Inner block content.
+ * @param boolean $is_preview True when rendering for the editor.
+ */
+function annav_lazy_preview_buffer_start( $block, $content, $is_preview ) {
+	unset( $block, $content );
+
+	if ( ! $is_preview ) {
+		return;
+	}
+
+	$depth = &annav_lazy_preview_depth();
+	$depth++;
+	ob_start();
+}
+add_action( 'acf/blocks/pre_block_template_render', 'annav_lazy_preview_buffer_start', 0, 3 );
+
+/**
+ * Rewrite lazy images in the captured preview, then echo them back.
+ *
+ * @param array   $block      Block props.
+ * @param string  $content    Inner block content.
+ * @param boolean $is_preview True when rendering for the editor.
+ */
+function annav_lazy_preview_buffer_end( $block, $content, $is_preview ) {
+	unset( $block, $content );
+
+	if ( ! $is_preview ) {
+		return;
+	}
+
+	$depth = &annav_lazy_preview_depth();
+	if ( $depth < 1 ) {
+		return;
+	}
+
+	$depth--;
+	$html = ob_get_clean();
+	echo annav_promote_lazy_images_for_editor( is_string( $html ) ? $html : '' ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- block template HTML, already escaped by the template.
+}
+add_action( 'acf/blocks/post_block_template_render', 'annav_lazy_preview_buffer_end', 999, 3 );

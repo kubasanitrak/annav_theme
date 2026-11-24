@@ -6,6 +6,7 @@
 	--btn-pad-R: 1.5em;
 	--gap: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
 	--hero-gap: calc(28px + (24 - 28) * ((100vw - 320px) / (2560 - 320)));
+	--arhive-gap: calc(28px + (80 - 28) * ((100vw - 320px) / (2560 - 320)));
 	--fscreen-T: var(--pad-T);
 	--fscreen-R: var(--pad-R);
 
@@ -115,6 +116,7 @@ $ham-BAR_SPACE: 5px;
 
 /* FORM SPECIFIC */
 $bor-RADIUS: 10vmax;
+$btn-RADIUS: $bor-RADIUS;
 
 
 $line-THICK: 1px;

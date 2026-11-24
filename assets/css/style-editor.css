@@ -27,6 +27,7 @@
   --btn-pad-R: 1.5em;
   --gap: calc(12px + (16 - 12) * ((100vw - 320px) / (1920 - 320)));
   --hero-gap: calc(28px + (24 - 28) * ((100vw - 320px) / (2560 - 320)));
+  --arhive-gap: calc(28px + (80 - 28) * ((100vw - 320px) / (2560 - 320)));
   --fscreen-T: var(--pad-T);
   --fscreen-R: var(--pad-R);
   --wrapper-padding-inline: var(--pad-R);
@@ -235,47 +236,61 @@
 }
 
 .pad-T {
-  padding-top: calc(var(--pad-T) * 1.333333);
+  padding-top: calc(var(--pad-T) * 1.0);
+  padding-block-start: calc(var(--pad-T) * 1.0);
 }
 .pad-T-1 {
-  padding-top: calc(var(--pad-T) * 1.333333 * 1);
+  padding-top: calc(var(--pad-T) * 1.0 * 1);
+  padding-block-start: calc(var(--pad-T) * 1.0 * 1);
 }
 .pad-T-2 {
-  padding-top: calc(var(--pad-T) * 1.333333 * 2);
+  padding-top: calc(var(--pad-T) * 1.0 * 2);
+  padding-block-start: calc(var(--pad-T) * 1.0 * 2);
 }
 .pad-T-3 {
-  padding-top: calc(var(--pad-T) * 1.333333 * 3);
+  padding-top: calc(var(--pad-T) * 1.0 * 3);
+  padding-block-start: calc(var(--pad-T) * 1.0 * 3);
 }
 .pad-T-4 {
-  padding-top: calc(var(--pad-T) * 1.333333 * 4);
+  padding-top: calc(var(--pad-T) * 1.0 * 4);
+  padding-block-start: calc(var(--pad-T) * 1.0 * 4);
 }
 .pad-T-5 {
-  padding-top: calc(var(--pad-T) * 1.333333 * 5);
+  padding-top: calc(var(--pad-T) * 1.0 * 5);
+  padding-block-start: calc(var(--pad-T) * 1.0 * 5);
 }
 .pad-T-6 {
-  padding-top: calc(var(--pad-T) * 1.333333 * 6);
+  padding-top: calc(var(--pad-T) * 1.0 * 6);
+  padding-block-start: calc(var(--pad-T) * 1.0 * 6);
 }
 
 .pad-B {
-  padding-bottom: calc(var(--pad-T) * 2.6666666);
+  padding-bottom: calc(var(--pad-T) * 2.0);
+  padding-block-end: calc(var(--pad-T) * 2.0);
 }
 .pad-B-1 {
-  padding-bottom: calc(var(--pad-T) * 1.333333 * 1);
+  padding-bottom: calc(var(--pad-T) * 1.0 * 1);
+  padding-block-end: calc(var(--pad-T) * 1.0 * 1);
 }
 .pad-B-2 {
-  padding-bottom: calc(var(--pad-T) * 1.333333 * 2);
+  padding-bottom: calc(var(--pad-T) * 1.0 * 2);
+  padding-block-end: calc(var(--pad-T) * 1.0 * 2);
 }
 .pad-B-3 {
-  padding-bottom: calc(var(--pad-T) * 1.333333 * 3);
+  padding-bottom: calc(var(--pad-T) * 1.0 * 3);
+  padding-block-end: calc(var(--pad-T) * 1.0 * 3);
 }
 .pad-B-4 {
-  padding-bottom: calc(var(--pad-T) * 1.333333 * 4);
+  padding-bottom: calc(var(--pad-T) * 1.0 * 4);
+  padding-block-end: calc(var(--pad-T) * 1.0 * 4);
 }
 .pad-B-5 {
-  padding-bottom: calc(var(--pad-T) * 1.333333 * 5);
+  padding-bottom: calc(var(--pad-T) * 1.0 * 5);
+  padding-block-end: calc(var(--pad-T) * 1.0 * 5);
 }
 .pad-B-6 {
-  padding-bottom: calc(var(--pad-T) * 1.333333 * 6);
+  padding-bottom: calc(var(--pad-T) * 1.0 * 6);
+  padding-block-end: calc(var(--pad-T) * 1.0 * 6);
 }
 
 .pad-L {
@@ -330,6 +345,8 @@ html :where(.editor-styles-wrapper) {
   padding: 1rem;
 }
 
+/* Preview images get a real src in the editor (see theme-assets.php).
+   Keep them inside the column instead of at their file size. */
 .editor-styles-wrapper img.lazyloaded {
   display: block;
   max-width: 100%;

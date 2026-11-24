@@ -24,6 +24,27 @@
             "ui_off_text": ""
         },
         {
+            "key": "field_6b05736bc3bd2",
+            "label": "Is Full widht ?",
+            "name": "is_full_width",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui": 0,
+            "ui_on_text": "",
+            "ui_off_text": ""
+        },
+        {
             "key": "field_69d689084b665",
             "label": "Background",
             "name": "section_bgr",
@@ -175,78 +196,42 @@
             "label": "Columns Vertical Align",
             "name": "cols_v_align",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Default cross-axis alignment for columns. Stretch enables per-column Top\/Center\/Bottom.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6afde54e9a4d5",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "ai_stretch": "Stretch",
-                "ai_start": "Top",
-                "ai_center": "Center",
-                "ai_end": "Bottom"
-            },
-            "default_value": "ai_stretch",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "ui": 1,
-            "ajax": 0,
+            "0": false,
+            "default_value": "",
+            "maxlength": "",
             "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_691e0b02cmin",
             "label": "Section Min Height",
             "name": "cols_min_height",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Gives the section height so Top\/Center\/Bottom can show.",
-            "required": 0,
-            "conditional_logic": [
-                [
-                    {
-                        "field": "field_6afde54e9a4d5",
-                        "operator": "==",
-                        "value": "1"
-                    }
-                ]
-            ],
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "": "None",
-                "minh_50": "50vh",
-                "minh_75": "75vh",
-                "minh_100": "100vh"
-            },
+            "0": false,
             "default_value": "",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 1,
-            "allow_in_bindings": 0,
-            "ui": 1,
-            "ajax": 0,
+            "maxlength": "",
             "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "prepend": "",
+            "append": ""
         }
     ],
     "location": [
@@ -254,7 +239,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/custom-section"
+                "value": "acf\/custom-section"
             }
         ]
     ],
@@ -268,5 +253,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763570000
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1795519386
 }

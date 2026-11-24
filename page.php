@@ -27,79 +27,21 @@ $PADDED_CONTENT = get_field('padded_content');
 		<?php if(!is_front_page()) : ?>
 
 			<?php if($PADDED_CONTENT) : ?>
-				<div data-theme="default" class="section pad-T pad-B-3 section-nowrapper" >
+				<!-- <div data-theme="default" class="section pad-T pad-B-3 section-nowrapper" > -->
 				<?php else: ?>
-				<div data-theme="default" class="section section-content header-trigger" >
+				<!-- <div data-theme="default" class="section section-content header-trigger" > -->
 			<?php endif; ?>
 		<?php endif; ?>
 
 
-				<div data-theme="default" class="section section-projdet section-padded" >
-					<div class="project-detail--header">
-						<h1 class="project-detail--title">First Republic-era Villa</h1>
-					</div>
-					<div class="project-detail--caption">
-						<div class="project-detail--caption_col">
-							<p class="project-detail--caption_label muted">Location</p>
-							<p class="project-detail--caption_txt">Prague, Czechia</p>
-						</div>
-						<div class="project-detail--caption_col">
-							<p class="project-detail--caption_label muted">Year</p>
-							<p class="project-detail--caption_txt">2024</p>
-						</div>
-						<div class="project-detail--caption_col">
-							<p class="project-detail--caption_label muted">Typology</p>
-							<p class="project-detail--caption_txt">Private residence</p>
-						</div>
-						<div class="project-detail--caption_col">
-							<p class="project-detail--caption_label muted">Scope</p>
-							<p class="project-detail--caption_txt">Full turnkey execution</p>
-						</div>
-					</div>
-				</div>
 				
+				
+
+				
+
 			<?php the_content(); ?>
 
-				<div data-theme="default" class="section section-feature section-padded" >
-					<div class="custom-row custom-row--cols">
-						<div class="custom-row--col custom-row--col_title">
-							<h2 class="">Architectural space planning</h2>
-						</div>
-						<div class="custom-row--col custom-row--col_caption">
-							<p class="plain muted">Spatial flows, volumes and bespoke layouts — resolved before a single finish is chosen.</p>
-						</div>
-					</div>
-					<div class="custom-row custom-row--cols">
-						<div class="custom-row--col custom-row--col_title">
-							<h2 class="">Material & textile curation</h2>
-						</div>
-						<div class="custom-row--col custom-row--col_caption">
-							<p class="plain muted">Rare stone, distinctive timber, hand-finished plasters and couture fabrics, sourced for each home.</p>
-						</div>
-					</div>
-					<div class="custom-row custom-row--cols">
-						<div class="custom-row--col custom-row--col_title">
-							<h2 class="">Full turnkey execution</h2>
-						</div>
-						<div class="custom-row--col custom-row--col_caption">
-							<p class="plain muted">From first sketch to final walkthrough — craftsmen, contractors and every seam, overseen by the studio.</p>
-						</div>
-					</div>
-				</div>
-
-				<div data-theme="default" class="section section-project-list section-padded" >
-					<div class="project-list--header">
-						<div class="project-list--label">Projects</div>
-						<div class="project-list--label muted">Archive</div>
-					</div>
-					<div class="project-list--content">
-						<h3 class="taC"><a href="#">Prague Playoffs 2021</a></h3>
-						<h3 class="taC"><a href="#">First Republic-era villa</a></h3>
-						<h3 class="taC"><a href="#">Interior of a House in Central America</a></h3>
-						<h3 class="taC"><a href="#">Šárka Residence</a></h3>
-						<h3 class="taC"><a href="#">Rich Beige Concrete Stone</a></h3>
-					</div>
-				</div>
+				
 
 		<?php #if($PADDED_CONTENT) : ?>
 			</div>

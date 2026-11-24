@@ -25,6 +25,8 @@
 
 @import '5-components/_01-header';
 @import '5-components/_02-logo';
+@import '5-components/_07-tabs';
+
 // @import '5-components/_03.01-menu';
 // @import '5-components/_03.02-hamburger';
 // @import '5-components/_05.01-accordeon';
@@ -109,7 +111,7 @@ html {
 	&-content {
 		padding-block-start: calc((var(--pad-T) * 15.0) + (var(--pad-T) * 8.0)) ;
 		@include mq(mq-land) {
-			padding-block-start: calc(var(--pad-T) * 8.5);
+			padding-block-start: calc(var(--pad-T) * 7);
 		}
 	}
 
@@ -119,13 +121,27 @@ html {
 	}
 	&-padded {
 		// padding-block: calc(var(--pad-T) * 1.0) calc(var(--pad-T) * 5.0);
-		padding-block: calc(var(--pad-T) * 1.0) calc(var(--pad-T) * 5.0);
+		&:not(.pad-T-1):not(.pad-T-2):not(.pad-T-3):not(.pad-T-4):not(.pad-T-5):not(.pad-T-6) {
+			padding-block-start: calc(var(--pad-T) * 1.0);
+		}
+		&:not(.pad-B-1):not(.pad-B-2):not(.pad-B-3):not(.pad-B-4):not(.pad-B-5):not(.pad-B-6) {
+			padding-block-end: calc(var(--pad-T) * 5.0);
+		}
 		@include mq(mq-land) {
+		}
+	}
+	&-projdet {
+		padding-block-end: calc(var(--pad-T) * 1.0);
+		@include mq(mq-land) {
+			padding-block-end: calc(var(--pad-T) * 2.0);
 		}
 	}
 	&-img {
 		overflow: hidden;
-		padding-block: 0 calc(var(--pad-T) * 3.0);
+		// padding-block: 0 calc(var(--pad-T) * 3.0);
+		&:not:first-of-type:not(.pad-T-1):not(.pad-T-2):not(.pad-T-3):not(.pad-T-4):not(.pad-T-5):not(.pad-T-6):not(.pad-B-1):not(.pad-B-2):not(.pad-B-3):not(.pad-B-4):not(.pad-B-5):not(.pad-B-6) {
+			padding-block: 0;
+		}
 		img {
 			width: 100%;
 			height: auto;
@@ -389,6 +405,23 @@ html {
 				grid-column: 5 / span 2;
 				// color: var(--annav-muted);
 			}
+			&_text {
+				grid-column: 1 / span 3;
+
+				p {
+					max-width: 42ch;
+				}
+
+				p + p {
+					margin-block-start: 1em;
+				}
+
+			}
+			&_credits {
+				grid-column: 5 / span 1;
+				justify-self: flex-end;
+
+			}
 			@include mq(mq-land) {
 				padding-block: 0;
 			}
@@ -532,6 +565,7 @@ html {
 		text-transform: uppercase;
 	}
 	&--caption {
+		padding-block-start: calc(var(--pad-T) * .5);
 		display: grid;
 		gap: var(--pad-R) var(--pad-T);
 		grid-template-columns: 1fr;
@@ -556,5 +590,63 @@ html {
 			}
 		}
 		&_txt {}
+	}
+}
+
+
+
+.archive {
+	&-row {
+		display: flex;
+		// flex-direction: column;
+		cursor: pointer;
+		padding-block: calc(var(--pad-T) * .25);
+		flex-wrap: wrap;
+		gap: calc(var(--pad-T) * .5) 0;
+		@include mq(mq-land) {
+			gap: var(--pad-T) var(--arhive-gap);
+			// flex-direction: row;
+		}
+	}
+	&-col {
+		display: flex;
+		flex-direction: column;
+		// align-items: baseline;
+		justify-content: flex-end;
+		@include mq(mq-land) {
+		}
+		&--title {
+			flex-basis: 100%;
+			flex-grow: 1;
+			@include mq(mq-land) {
+				flex-basis: 42%;
+				flex-grow: .5;
+			}
+		}
+		&--location,
+		&--year,
+		&--typology {
+			padding-bottom: calc(var(--pad-T) * .15);
+			flex-basis: 50%;
+			flex-grow: .5;
+		}
+		&--location {
+			@include mq(mq-land) {
+				flex-basis: auto;
+				flex-grow: .25;
+			}
+		}
+		&--year {
+			@include mq(mq-land) {
+				flex-basis: 0%;
+				flex-grow: 0;
+			}
+		}
+		&--typology {
+			@include mq(mq-land) {
+				// flex-grow: 0;
+				flex-basis: 28%;
+			}
+		}
 	}
 }

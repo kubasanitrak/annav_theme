@@ -12,8 +12,10 @@ h3, .h3 {
 }
 h3, .h3 {
 	font-size: $fz-H3;
-	max-width: 30ch;
-	margin-inline: auto;
+	&:not(.taL):not(.archive-col--title) {
+		max-width: 30ch;
+		margin-inline: auto;
+	}
 }
 h4, .h4,
 h5, .h5,

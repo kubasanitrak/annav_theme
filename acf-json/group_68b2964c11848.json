@@ -68,8 +68,8 @@
             },
             "layout": "table",
             "pagination": 0,
-            "min": "",
-            "max": "",
+            "min": 0,
+            "max": 0,
             "collapsed": "field_68668dc6f70f3",
             "button_label": "Přidat obrázek",
             "rows_per_page": 20,
@@ -182,30 +182,21 @@
             "label": "Vertical Align",
             "name": "v_align",
             "aria-label": "",
-            "type": "select",
-            "instructions": "Positions the column within the section row height.",
-            "required": 0,
-            "conditional_logic": 0,
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
             "wrapper": {
-                "width": "50",
+                "width": "",
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "top": "Top",
-                "center": "Center",
-                "bottom": "Bottom"
-            },
-            "default_value": "top",
-            "return_format": "value",
-            "multiple": 0,
-            "allow_null": 0,
-            "allow_in_bindings": 0,
-            "ui": 1,
-            "ajax": 0,
+            "0": false,
+            "default_value": "",
+            "maxlength": "",
             "placeholder": "",
-            "create_options": 0,
-            "save_options": 0
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_691e0a02inst",
@@ -301,7 +292,7 @@
             {
                 "param": "block",
                 "operator": "==",
-                "value": "acf/custom-column"
+                "value": "acf\/custom-column"
             }
         ]
     ],
@@ -315,5 +306,7 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1763570000
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1795519355
 }

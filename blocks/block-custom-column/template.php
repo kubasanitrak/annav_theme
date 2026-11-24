@@ -118,6 +118,7 @@
                                 data-src="<?php echo esc_url( $img_src ); ?>"
                                 data-sizes="auto" alt="">
                 <?php endif; ?>
+                <?php if ( $itemCAPTION || $itemCAPTION2 ) : ?>
                                 <div class="split-cols--item---caption">
                                     <?php if ( $itemCAPTION ) : ?>
                                         <p class="plain split-cols--item---caption_txt"><?php echo esc_html( $itemCAPTION ); ?></p>
@@ -126,6 +127,7 @@
                                         <p class="plain split-cols--item---caption_txt"><?php echo esc_html( $itemCAPTION2 ); ?></p>
                                     <?php endif; ?>
                                 </div>
+                <?php endif; ?>
                             </div>
                 <?php
                     endforeach;

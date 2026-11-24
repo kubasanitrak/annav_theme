@@ -153,18 +153,22 @@
 }
 
 .pad-T {
-	padding-top: calc(var(--pad-T) * 1.333333);
+	padding-top: calc(var(--pad-T) * 1.0);
+	padding-block-start: calc(var(--pad-T) * 1.0);
 	@for $i from 1 through 6 {
 		&-#{$i} {
-			padding-top: calc(var(--pad-T) * 1.333333 * #{$i});
+			padding-top: calc(var(--pad-T) * 1.0 * #{$i});
+			padding-block-start: calc(var(--pad-T) * 1.0 * #{$i});
 		}
 	}
 }
 .pad-B {
-	padding-bottom: calc(var(--pad-T) * 2.6666666);
+	padding-bottom: calc(var(--pad-T) * 2.0);
+	padding-block-end: calc(var(--pad-T) * 2.0);
 	@for $i from 1 through 6 {
 		&-#{$i} {
-			padding-bottom: calc(var(--pad-T) * 1.333333 * #{$i});
+			padding-bottom: calc(var(--pad-T) * 1.0 * #{$i});
+			padding-block-end: calc(var(--pad-T) * 1.0 * #{$i});
 		}
 	}
 }

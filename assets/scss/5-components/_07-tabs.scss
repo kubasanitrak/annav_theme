@@ -1,0 +1,125 @@
+	.nabidka-tabs {
+	input[type="radio"] {
+		display: none;
+		visibility: hidden;
+	}
+	nav {
+		position: relative;
+		display: flex;
+		width: 100%;
+		@include mq(mq-land) {
+			width: 22em;
+			margin: auto;
+		}
+		align-items: center;
+		justify-content: space-between;
+		font-size: $fz-PLAIN;
+		height: calc(.75em + .75em + (#{$fz-PLAIN} * 1.0));
+		border-radius: $btn-RADIUS;
+		border: $line-THICK solid var(--HM-orange);
+		overflow: hidden;
+		&::after {
+			content: "";
+			display: block;
+			display: flex;
+			position: absolute;
+			background-color: hsla(var(--HM-orange-hsl), 1);
+			border-radius: $btn-RADIUS;
+			top: 0;
+			left: 0;
+			width: calc(50% + var(--gap));
+			@include mq(mq-land) {
+				width: calc(50% + (var(--gap) * .5));
+			}
+			height: 100%;
+			transition: transform #{$dur}s ease-in-out;
+			z-index: 0;
+		}
+	}
+	// label 
+	.nabidka-tabs--switch {
+		display: flex;
+		flex-grow: 1;
+		justify-content: center;
+		cursor: pointer;
+		position: relative;
+		z-index: 2;
+	}
+
+	.nabidka-tabs--content {
+		margin-top: var(--pad-T);
+	}
+	.nabidka-tabs--content_drinks > *,
+	.nabidka-tabs--content_dishes > * {
+		// transition: opacity $global-transistion-duration #{$dur}s ease-in-out;
+		transition:
+			max-height 0 0 ease-none,
+			opacity $global-transistion-duration #{$dur}s ease-in-out;
+	}
+	.nabidka-tabs--radio_1:checked {
+		& ~ nav::after {
+			transform: translateX(0);
+			// width: auto;
+			// flex-grow: .75;
+		}
+		& ~ nav .nabidka-tabs--switch_1 {
+			color: var(--HM-gray1);
+		}
+		& ~ nav .nabidka-tabs--switch_2 {
+			color: var(--HM-orange);
+		}
+		& ~ .nabidka-tabs--content_drinks {
+			// display: block;
+			opacity: 1;
+			max-height: initial;
+			> * {
+				opacity: 1;
+				max-height: initial;
+			}
+		}
+		& ~ .nabidka-tabs--content_dishes {
+			// display: none;
+			opacity: 0;
+			max-height: 0;
+			margin-top: 0;
+			> * {
+				opacity: 0;
+				max-height: 0;
+			}
+		}
+	}
+	.nabidka-tabs--radio_2:checked {
+		& ~ nav::after {
+			transform: translateX(calc(100% - (var(--gap) * .75)));
+			@include mq(mq-land) {
+				transform: translateX(calc(100% - (var(--gap) * .25)));
+			}
+			// flex-grow: 1;
+		}
+		& ~ nav .nabidka-tabs--switch_1 {
+			color: var(--HM-orange);
+		}
+		& ~ nav .nabidka-tabs--switch_2 {
+			color: var(--HM-gray1);
+		}
+		& ~ .nabidka-tabs--content_drinks {
+			// display: none;
+			opacity: 0;
+			max-height: 0;
+			margin-top: 0;
+			> * {
+				opacity: 0;
+				max-height: 0;
+			}
+		}
+		& ~ .nabidka-tabs--content_dishes {
+			// display: block;
+			opacity: 1;
+			max-height: initial;
+			> * {
+				opacity: 1;
+				max-height: initial;
+			}
+		}
+	}
+}

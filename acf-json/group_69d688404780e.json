@@ -118,7 +118,7 @@
                 "id": ""
             },
             "choices": {
-                "paralax": "paralax",
+                "paralax": "anim_paralax",
                 "clip": "clip_path"
             },
             "default_value": false,
@@ -255,5 +255,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1795519386
+    "modified": 1795611074
 }

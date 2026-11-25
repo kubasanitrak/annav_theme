@@ -53,6 +53,10 @@
 	let scrollDist = 0;
 	let winH = 0;
 	const scrollMin = 20;
+	let forcePause,
+		videos = document.querySelectorAll(".inline-video"),
+		_bgVideo = document.getElementById('bgvidID');
+
 
 	function toggleSOS() {
 		if (!btnSOS) {
@@ -120,16 +124,16 @@
 		const observer = new IntersectionObserver(
 			function (entries) {
 				entries.forEach(function (entry) {
-					if (entry.intersectionRatio > 0.19) {
+					if (entry.intersectionRatio > 0.18) {
 						entry.target.classList.add('inView');
-					} else {
+					} /* else {
 						entry.target.classList.remove('inView');
-					}
+					} */
 				});
 			},
 			{
 				rootMargin: '-50% 0px -15% 0px',
-				threshold: [0, 0.25, 0.5, 0.75, 1],
+				threshold: [0, 0.23, 0.5, 0.75, 1],
 			}
 		);
 
@@ -186,6 +190,12 @@
 				}
 
 				if (scrollTop > winH * 1.15 && scrollDir === 'down') {
+					if(_bgVideo) {
+						if(_bgVideo.playing) {
+							_bgVideo.pause();
+console.log("pausing video");
+						}
+					}
 					if (siteHeader) {
 						siteHeader.classList.add('scrolled');
 					}
@@ -200,6 +210,10 @@
 				} else if (scrollTop < winH * 1.15 && scrollDir === 'up') {
 					if (siteHeader) {
 						siteHeader.classList.remove('scrolled');
+					}
+					if(_bgVideo) {
+						if(!_bgVideo.playing) _bgVideo.play();
+console.log("playing video");
 					}
 				}
 			}, 500)
@@ -240,10 +254,49 @@
 		bindPreventDefaults();
 		addWindowListeners();
 		setStickyOffsetVariables();
+		loadVideoSrc();
 	}
 
 	window.addEventListener('load', docLoaded);
 
+/* HELPER FUNCTIONS */
+/* INLINE VIDEO RELATED */
+	function loadVideoSrc() {
+		if(!videos) return;
+console.log("video loading");
+		videos.forEach((videoItem)=> {
+			if(videoItem.dataset.videosrc_portrait) {
+				addSourceToVideo(videoItem, videoItem.dataset.videosrc_portrait + '.mp4', 'video/mp4', true);
+				addSourceToVideo(videoItem, videoItem.dataset.videosrc_portrait + '.webm', 'video/webm', true);
+			}
+			addSourceToVideo(videoItem, videoItem.dataset.videosrc + '.mp4', 'video/mp4', false);
+			addSourceToVideo(videoItem, videoItem.dataset.videosrc + '.webm', 'video/webm', false);
+		});
+	}
+
+	function addSourceToVideo(element, src, type, portrait) {
+		var source = document.createElement('source');
+		// LANDSCAPE & PORTRAIT
+		source.src = src;
+		source.type = type;
+		// PORTRAIT ONLY
+		if(portrait) {
+			source.media = '(max-aspect-ratio: 1 / 1)';
+		}
+		element.appendChild(source);
+	}
+
+	Object.defineProperty(HTMLMediaElement.prototype, "playing", {
+		get: function get() {
+			return !!(
+				this.currentTime > 0 &&
+				!this.paused &&
+				!this.ended &&
+				this.readyState > 2
+			);
+		}
+	});
+/* INLINE VIDEO RELATED */
 
 	// create
 	let mm = gsap.matchMedia();
@@ -284,4 +337,4 @@
 
 	// later, if we need to revert all the animations/ScrollTriggers...
 	// mm.revert();
-})();
+})();	

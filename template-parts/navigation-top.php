@@ -24,17 +24,17 @@
 	</div>
 	<div class="header-col header-col--menu">
 		<p class="plain label">Navigation</p>
-		<ul class="main-nav-list nav-list list-none">
+		<!-- <ul class="main-nav-list nav-list list-none">
 			<li class="menu-item strong"><a href="#">Projects</a></li>
 			<li class="menu-item strong"><a href="#">About</a></li>
 			<li class="menu-item strong"><a href="#">Contact</a></li>
-		</ul>
+		</ul> -->
 		<?php
-			// wp_nav_menu( array(
-			// 	'theme_location' => 'main-menu',
-			// 	'container' => '',
-			// 	'menu_class' => 'main-nav-list nav-list list-none',
-			//  ) );
+			wp_nav_menu( array(
+				'theme_location' => 'main-menu',
+				'container' => '',
+				'menu_class' => 'main-nav-list nav-list list-none',
+			 ) );
 		?>
 	</div>
 	<div class="header-col header-col--lang">

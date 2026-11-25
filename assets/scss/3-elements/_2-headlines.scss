@@ -1,5 +1,12 @@
 h1, .h1 {
 	font-size: $fz-H1;
+	&.header-title {
+		font-size: $fz-H1-MEGA;
+		line-height: .85em;
+		@include mq(mq-land) {
+			text-align: center;
+		}
+	}
 }
 h2, .h2 {
 	font-size: $fz-H2;
@@ -8,7 +15,9 @@ h2, .h2 {
 }
 h1, .h1,
 h3, .h3 {
-	line-height: 118%;
+	&:not(.header-title) {
+		line-height: 118%;
+	}
 }
 h3, .h3 {
 	font-size: $fz-H3;
@@ -50,8 +59,10 @@ h6, .h6 {
 .section-title {
 	line-height: 1em;
 }
+.ff-title,
 .project-detail--title {
 	font-family: 'FF-Title';
 	font-weight: normal;
 	font-style: normal;
 }
+

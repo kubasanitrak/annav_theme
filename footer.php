@@ -1,7 +1,7 @@
 <?php 
 	$DATA_THEME = get_field('data-theme') ? get_field('data-theme') : 'default';
 ?>
-<div class="section scroll-trigger scroll-trigger--foter section-footer" data-theme="dark">
+<div class="section scroll-trigger scroll-trigger--footer section-footer" data-theme="dark">
 	
 	<div class="section-footer--row section-footer--row_social">
 			<!-- WIDGET FOLLOW US -->

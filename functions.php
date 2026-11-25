@@ -180,34 +180,29 @@ function my_theme_color_features() {
 			'color'	=> '#000000',
         ],
 		[
-			'name'	=>	__( 'Ochre', 'annav_theme'),
-			'slug'	=>	'ochre',
-			'color'	=>	'#D49A2D',
+			'name'	=>	__( 'Dark Grey', 'annav_theme'),
+			'slug'	=>	'dark-grey',
+			'color'	=>	'#131211',
 		],
 		[
-			'name'	=>	__( 'Sky blue', 'annav_theme'),
-			'slug'	=>	'sky-blue',
-			'color'	=>	'#D5EBFF',
+			'name'	=>	__( 'Ivory', 'annav_theme'),
+			'slug'	=>	'ivory',
+			'color'	=>	'#F1E9DC',
+		],
+		[
+			'name'	=>	__( 'Sand', 'annav_theme'),
+			'slug'	=>	'sand',
+			'color'	=>	'#C5B49E',
 		],
 		[
 			'name'	=>	__( 'Blue', 'annav_theme'),
 			'slug'	=>	'blue',
-			'color'	=>	'#2A79DF',
+			'color'	=>	'#000A63',
 		],
 		[
-			'name'	=>	__( 'Dark green', 'annav_theme'),
-			'slug'	=>	'dark-green',
-			'color'	=>	'#00766C',
-		],
-		[
-			'name'	=>	__( 'Off white', 'annav_theme'),
-			'slug'	=>	'off-white',
-			'color'	=>	'#FAF7F5',
-		],
-		[
-			'name'	=>	__( 'Sandy lavender', 'annav_theme'),
-			'slug'	=>	'sandy-lavender',
-			'color'	=>	'#A67CB2',
+			'name'	=>	__( 'Muted', 'annav_theme'),
+			'slug'	=>	'muted',
+			'color'	=>	'#7D776F',
 		],
     ];
 

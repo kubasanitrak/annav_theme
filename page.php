@@ -44,7 +44,7 @@ $PADDED_CONTENT = get_field('padded_content');
 				
 
 		<?php #if($PADDED_CONTENT) : ?>
-			</div>
+			<!-- </div> -->
 		<?php #endif; ?>
 		
 	<?php endwhile; endif; ?>

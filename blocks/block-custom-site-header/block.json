@@ -1,0 +1,24 @@
+{
+    "name": "acf/custom-site-header",
+    "title": "Site Header (ACF Block)",
+    "description": "Image or video block",
+    "category": "formatting",
+    "icon": "video-alt2",
+    "keywords": ["header", "site head"],
+    "acf": {
+        "mode": "edit",
+        "renderTemplate": "template.php"
+    },
+    "supports": {
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true
+        },
+        "anchor": true,
+        "jsx": true,
+        "align": true,
+        "color": true
+    },
+    "align": "full"
+}

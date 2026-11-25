@@ -62,8 +62,13 @@ $theme_uri = get_template_directory_uri();
 </style>
 
 <?php 
+if(is_front_page()) :  
+	$DATA_THEME = 'frontpage';
+else :
 	$DATA_THEME = get_field('data-theme') ? get_field('data-theme') : 'default';
+endif;
 ?>
+
 </head>
 
 <body>
@@ -73,9 +78,9 @@ $theme_uri = get_template_directory_uri();
 		<!-- style="background-color: pink;" -->
 		<div class="logo-container " id="logo_header_ID" >
 			<div class="svg-container logo" style="--aspect-ratio: 352/107;">
-				<!-- LOGO SVG -->
+				<!-- PORTRAIT ONLY LOGO SVG -->
 				<?php get_template_part( 'template-parts/logo_header', 'top' ); ?>
-				<!-- LOGO SVG -->
+				<!-- PORTRAIT ONLY LOGO SVG -->
 			</div>
 			<a class="abs-link" href="<?php echo get_site_url(); ?>"></a>
 		</div>

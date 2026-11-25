@@ -4,7 +4,10 @@
 	transform: translate(0, 0);
 	transition: transform $global-transistion-duration 0.0s ease-out;
 }
-	
+.section-nav {	
+	transition: background-color $global-transistion-duration 0.0s ease-out;
+}
+
 .menu-container li,
 .menu-container .submenu {
 	opacity: 0;
@@ -187,6 +190,54 @@
 			}
 		}
 
+		&--paralax {
+			> *,
+			.project-list--header > *,
+			.project-list--content > * {
+				opacity: 0;
+				transform: translateY($prlx-dist);
+				@include css-paralax(10, $scroll-transistion-duration );
+			}
+			&.inView {
+				> *,
+				.project-list--header > *,
+				.project-list--content > * {
+					opacity: 1;
+					transform: translateY(0);
+				}
+			}
+		}
+		&--footer {
+			svg path {
+				stroke-width: 14;
+				stroke: var(--annav-sand);
+				transition: stroke-width calc(#{$global-transistion-duration} * 2) 0.0s ease-in-out;
+			}
+			.foot-navlist--social_item,
+			.section-footer--col {
+				opacity: 0;
+				transform: translateY($prlx-dist);
+			}
+			.foot-navlist--social_item  {
+				@include css-paralax(3, $scroll-transistion-duration ); // ($children:1, $duration: 0.5, $offset: 0.25, $startdelay: 0)
+			}
+			.section-footer--col {
+				@include css-paralax(5, $scroll-transistion-duration, 0.2, $scroll-transistion-duration ); // ($children:1, $duration: 0.5, $offset: 0.25, $startdelay: 0)
+			}
+
+			&.inView {
+				.foot-navlist--social_item,
+				.section-footer--col {
+					opacity: 1;
+					transform: translateY(0);
+				}
+				svg path {
+					stroke-width: 0;
+				}
+			}
+
+		}
+
 		// &--linethrough,
 		// &--faq {
 		// 	&::before {
@@ -266,61 +317,61 @@
 
 	.loading {
 		
-		.site-title {
+		.header-title {
 			opacity: 0;
-			&:nth-of-type(3),
-			&:nth-of-type(4),
-			.doubled-line {
-				transform: translateY(0);
-			}
-		}
-		.site-subtitle {
-			opacity: 0;
+			// &:nth-of-type(3),
+			// &:nth-of-type(4),
+			// .doubled-line {
+			// 	transform: translateY(0);
+			// }
+		// }
+		// .site-subtitle {
+		// 	opacity: 0;
 			transform: translateY($prlx-dist);
 		}
 	}
 
-	.site-title,
-	.doubled-line {
+	.header-title {
 		transition: 
 			/*property	duration	delay */
 			opacity		$intro-t	0.0s	ease-in-out,
 			transform	$intro-t*3	0.0s	$cubic4;
 	}
 
-	.site-subtitle {
-		transition: 
-			/*property	duration	delay */
-			opacity		$intro-t	calc(var(--intro-delay) * 4)	ease-in-out,
-			transform	$intro-t*2	calc(var(--intro-delay) * 4)	ease-in-out;
-	}
+	// .site-subtitle {
+	// 	transition: 
+	// 		/*property	duration	delay */
+	// 		opacity		$intro-t	calc(var(--intro-delay) * 4)	ease-in-out,
+	// 		transform	$intro-t*2	calc(var(--intro-delay) * 4)	ease-in-out;
+	// }
 
-	.site-title {
+	.header-title {
 		opacity: 1;
+		transform: translateY(0);
 
-		&:nth-of-type(3),
-		&:nth-of-type(4),
-		.doubled-line {
-			transform: translateY(.15em);
-		}
+		// &:nth-of-type(3),
+		// &:nth-of-type(4),
+		// .doubled-line {
+		// 	transform: translateY(.15em);
+		// }
 		&:nth-of-type(1) {
 			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 1) ), 0.0s; //opacity, transform
 		}
-		&:nth-of-type(2),
-		.doubled-line {
-			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 2) ), calc(var(--intro-delay) * 4); //opacity, transform
-		}
-		&:nth-of-type(3) {
-			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 3) ), calc(var(--intro-delay) * 4); //opacity, transform
-		}
-		&:nth-of-type(4) {
-			transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 4) ), calc(var(--intro-delay) * 4); //opacity, transform
-		}
+		// &:nth-of-type(2),
+		// .doubled-line {
+		// 	transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 2) ), calc(var(--intro-delay) * 4); //opacity, transform
+		// }
+		// &:nth-of-type(3) {
+		// 	transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 3) ), calc(var(--intro-delay) * 4); //opacity, transform
+		// }
+		// &:nth-of-type(4) {
+		// 	transition-delay: calc(#{$intro-t} + (var(--stagger-t) * 4) ), calc(var(--intro-delay) * 4); //opacity, transform
+		// }
 	}
 	
-	.site-subtitle {
-		transform: translateY(.3em);
-	}
+	// .site-subtitle {
+	// 	transform: translateY(.3em);
+	// }
 
 	.loaded {
 		
